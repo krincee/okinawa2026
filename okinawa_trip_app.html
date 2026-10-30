@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="zh-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#a8d8f0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="沖繩9fingfing之旅">
+<link rel="apple-touch-icon" href="./apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="./icon-192.png">
+<link rel="manifest" href="./manifest.webmanifest">
+<title>沖繩9fingfing之旅</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&family=Noto+Sans+HK:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink-strong:#31536d;--shadow:0 14px 42px rgba(147,190,221,.22);--glass:blur(20px);
+}
+*{box-sizing:border-box}html,body{margin:0;font-family:"Noto Sans HK","PingFang HK",sans-serif;color:var(--ink-strong);background:
+radial-gradient(circle at 20% 20%, #ffffff 0, #ffffffa0 15%, transparent 30%),
+radial-gradient(circle at 80% 10%, #ffd8ea 0, #ffd8ea80 18%, transparent 35%),
+radial-gradient(circle at 20% 90%, #c9ebff 0, #c9ebff80 20%, transparent 36%),
+linear-gradient(180deg,#eefaff 0%,#fef6fb 45%,#eef8ff 100%);min-height:100vh}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;background:radial-gradient(circle at 10% 10%, rgba(255,255,255,.55), transparent 30%),radial-gradient(circle at 80% 15%, rgba(255,219,237,.45), transparent 24%),radial-gradient(circle at 85% 78%, rgba(168,225,255,.35), transparent 28%);filter:blur(8px)}
+button,input,select{font:inherit}a{color:inherit}.app{max-width:860px;margin:auto;min-height:100vh;position:relative;background:linear-gradient(180deg,rgba(255,255,255,.58),rgba(255,255,255,.45));backdrop-filter:var(--glass);box-shadow:0 0 60px rgba(164,209,237,.22);padding-bottom:92px}.screen{display:none}.screen.active{display:block}
+.cover{padding:20px 18px 22px}.hero{position:relative;overflow:hidden;border-radius:34px;min-height:250px;padding:26px 24px;background:linear-gradient(135deg, rgba(183,229,255,.82), rgba(255,222,237,.84) 55%, rgba(240,248,255,.92));box-shadow:var(--shadow);border:1px solid rgba(255,255,255,.8)}.hero:before{content:"";position:absolute;inset:-20% auto auto -10%;width:220px;height:220px;background:rgba(255,255,255,.55);border-radius:50%;filter:blur(10px)}.hero:after{content:"";position:absolute;right:-55px;bottom:-60px;width:220px;height:220px;background:rgba(255,255,255,.35);border-radius:50%;filter:blur(6px)}.trip-chip{display:inline-flex;gap:8px;align-items:center;padding:8px 13px;border-radius:999px;background:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.85);font-size:12px;font-weight:800;color:#6e95af}.hero h1{font-family:"Nunito",sans-serif;font-weight:900;font-size:34px;line-height:1.05;margin:18px 0 10px;color:#42709a;letter-spacing:.01em}.hero .sub{font-size:14px;line-height:1.6;max-width:88%;color:#5d7b95;font-weight:700}.hero .floaties{position:absolute;right:20px;top:18px;display:grid;gap:10px;text-align:right;font-size:13px;color:#6c8ea5;font-weight:800}.hero .wave{margin-top:20px;display:flex;gap:10px;flex-wrap:wrap}.pill{padding:10px 14px;border-radius:999px;background:rgba(255,255,255,.58);border:1px solid rgba(255,255,255,.8);font-weight:800;font-size:12px;color:#5f7f98}
+.header{position:sticky;top:0;z-index:30;padding:11px 14px 10px;background:rgba(246,252,255,.75);backdrop-filter:blur(18px);display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(199,225,242,.8)}.header-title{font-family:"Nunito",sans-serif;font-size:24px;font-weight:900;color:#5a83a9;letter-spacing:.02em}.header-side{font-size:12px;color:#88a3b7;font-weight:800;text-align:right}.icon-btn{width:42px;height:42px;border:0;border-radius:50%;background:rgba(255,255,255,.75);box-shadow:0 5px 20px rgba(168,210,237,.25);color:#5b87af;font-size:22px}.pad{padding:16px}.card{background:rgba(255,255,255,.78);border:1px solid rgba(255,255,255,.95);border-radius:28px;box-shadow:var(--shadow);backdrop-filter:var(--glass);padding:16px 16px 15px;margin-bottom:16px}.soft-card{background:linear-gradient(180deg, rgba(255,255,255,.78), rgba(255,255,255,.66));}.overview{display:grid;grid-template-columns:1.1fr .9fr;gap:12px}.kicker{font-size:12px;font-weight:900;letter-spacing:.08em;color:#8db0c8;text-transform:uppercase}.big{font-family:"Nunito",sans-serif;font-size:30px;line-height:1.02;font-weight:900;color:#4676a0;margin-top:6px}.note{font-size:13px;line-height:1.6;color:#6f8aa0}.quick-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}.quick-actions button,.menu-btn{border:0;border-radius:20px;padding:14px 14px;background:linear-gradient(135deg,rgba(177,226,255,.75),rgba(255,225,237,.9));box-shadow:0 8px 22px rgba(175,209,234,.18);font-weight:900;color:#53789a;text-align:left}.menu-btn{width:100%;margin-bottom:12px}.countdown{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:12px}.count-box{padding:12px 8px;border-radius:22px;text-align:center;background:linear-gradient(180deg,rgba(255,255,255,.78),rgba(255,255,255,.55));border:1px solid rgba(255,255,255,.9)}.count-box b{display:block;font:900 24px/1 "Nunito";color:#5f86ad}.count-box span{font-size:11px;color:#89a2b5;font-weight:800}
+.day-list{padding:10px 14px 18px}.day-row{display:grid;grid-template-columns:76px 1fr 20px;gap:12px;align-items:center;padding:15px 12px;border-radius:26px;background:rgba(255,255,255,.66);border:1px solid rgba(255,255,255,.94);box-shadow:var(--shadow);margin-bottom:12px}.day-no{font-family:"Nunito";font-weight:900;font-size:24px;color:#5e88ad}.day-no small{display:block;font-size:11px;color:#90aec6;letter-spacing:.08em}.day-row .meta{font-size:12px;color:#88a4b7;font-weight:800;margin-top:4px}.day-row .title{font-weight:900;color:#476f97;line-height:1.35}.chv{font-size:20px;color:#87b7da}.detail-intro{padding:16px 16px 4px}.detail-day{font-size:13px;font-weight:900;letter-spacing:.1em;color:#87abc6;text-transform:uppercase}.detail-title{font-family:"Nunito";font-size:31px;line-height:1.05;color:#4c79a0;font-weight:900;margin-top:6px}.detail-region{font-size:13px;color:#7d96a9;font-weight:800;margin-top:6px}
+.weather-wardrobe{display:grid;grid-template-columns:1fr;gap:12px;padding:0 16px 6px}.w-card{background:linear-gradient(135deg,rgba(213,239,255,.75),rgba(255,232,242,.9));border-radius:28px;box-shadow:var(--shadow);padding:15px;border:1px solid rgba(255,255,255,.9)}.weather-top{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}.weather-main{display:flex;gap:12px;align-items:center}.weather-icon{font-size:34px}.weather-temp{font-family:"Nunito";font-weight:900;font-size:28px;color:#4d7ca3}.weather-text{font-size:12px;line-height:1.5;color:#6f8ea5;font-weight:800}.badge{display:inline-block;padding:4px 10px;border-radius:999px;background:rgba(255,255,255,.66);font-size:11px;font-weight:900;color:#7d9cb4}.swatch-grid{display:grid;gap:8px;margin-top:12px}.swatch-row{display:grid;grid-template-columns:54px 1fr;gap:10px;align-items:start;padding:10px 11px;border-radius:18px;background:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.9)}.swatch-label{font-size:12px;font-weight:900;color:#6c8dab;padding-top:4px}.swatches{display:flex;flex-wrap:wrap;gap:8px}.sw{display:flex;flex-direction:column;align-items:center;gap:4px;min-width:42px}.sw i{display:block;width:30px;height:30px;border-radius:50%;box-shadow:inset 0 0 0 2px rgba(255,255,255,.55), 0 3px 10px rgba(0,0,0,.06)}.sw em{font-style:normal;font-size:9px;font-weight:800;color:#6c8497;white-space:nowrap}.tip-box{margin-top:12px;padding:11px 12px;border-radius:18px;background:rgba(255,255,255,.55);font-size:12px;line-height:1.6;color:#627c95}
+.section-stack{padding:8px 16px 24px}.place-card{background:linear-gradient(180deg,rgba(255,255,255,.78),rgba(255,255,255,.62));border-radius:30px;overflow:hidden;border:1px solid rgba(255,255,255,.95);box-shadow:var(--shadow);margin-bottom:18px}.place-top{padding:16px 16px 10px;background:linear-gradient(135deg,rgba(208,236,255,.66),rgba(255,229,239,.72))}.place-title{font-family:"Nunito";font-size:26px;line-height:1.08;font-weight:900;color:#4e7ba2}.place-meta{font-size:12px;color:#6f8da5;font-weight:800;line-height:1.55;margin-top:8px}.place-body{padding:15px 16px 16px}.place-desc{font-size:14px;line-height:1.7;color:#617b94;margin-bottom:12px}.bubble-list{display:grid;gap:8px}.bubble{padding:10px 12px;border-radius:18px;background:rgba(255,255,255,.58);border:1px solid rgba(226,239,248,.95);font-size:13px;line-height:1.55;color:#59758d}.transit{margin-top:12px;padding:11px 12px;border-radius:18px;background:linear-gradient(135deg,rgba(193,236,255,.48),rgba(255,238,245,.62));font-size:12px;line-height:1.6;color:#5c7d97;font-weight:800}.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}.tag{padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.72);font-size:11px;font-weight:900;color:#7f9bb0;border:1px solid rgba(255,255,255,.95)}
+.bottom{position:fixed;left:50%;transform:translateX(-50%);bottom:0;width:min(860px,100%);padding:10px 12px calc(10px + env(safe-area-inset-bottom));display:grid;grid-template-columns:repeat(4,1fr);gap:8px;background:linear-gradient(180deg,rgba(247,252,255,.15),rgba(247,252,255,.92));backdrop-filter:blur(22px);border-top:1px solid rgba(205,226,241,.9);z-index:40}.tab{border:0;border-radius:24px;padding:10px 6px;background:rgba(255,255,255,.72);color:#84a6bd;font-size:11px;font-weight:900;box-shadow:0 6px 18px rgba(170,210,236,.18)}.tab.active{background:linear-gradient(135deg,rgba(173,226,255,.95),rgba(255,223,239,.95));color:#4b789f}.tab i{display:block;font-style:normal;font-size:18px;margin-bottom:2px}
+.panel{background:linear-gradient(180deg,rgba(255,255,255,.82),rgba(255,255,255,.64));border:1px solid rgba(255,255,255,.95);border-radius:28px;padding:16px;box-shadow:var(--shadow);margin-bottom:16px}.panel h3{margin:0 0 12px;font-family:"Nunito";font-size:24px;color:#527aa0}.field,select,input{width:100%;padding:12px 13px;border-radius:16px;border:1px solid #dbeaf6;background:rgba(255,255,255,.85);color:#56748f;margin-top:8px}.primary{width:100%;border:0;border-radius:20px;padding:14px;background:linear-gradient(135deg,rgba(165,222,255,.95),rgba(255,213,233,.95));font-weight:900;color:#4f789b;box-shadow:0 8px 20px rgba(169,214,240,.18)}.exp-item,.balance{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid #e4f0f8}.small{font-size:12px;color:#8aa6b9;line-height:1.55}.menu{padding:16px}.always{margin-top:8px;padding:22px 10px 6px;text-align:center;font-family:"Nunito";font-size:28px;line-height:1.03;color:#7e9eb7;font-weight:900;opacity:.88}.always small{font-size:15px;color:#a0b3c1}.check-row{display:flex;align-items:center;gap:10px;padding:10px 2px;border-bottom:1px solid #e8f2f8}.check-row input{width:22px;height:22px;margin:0;accent-color:#8cd1ff}.progress{height:10px;border-radius:999px;background:#eff6fb;overflow:hidden;margin-top:8px}.progress span{display:block;height:100%;background:linear-gradient(90deg,#a8defe,#ffcde3)}.flight-card,.stay-card{background:linear-gradient(180deg,rgba(255,255,255,.8),rgba(255,255,255,.66));border-radius:28px;padding:16px;box-shadow:var(--shadow);border:1px solid rgba(255,255,255,.95);margin-bottom:14px}.flight-grid{display:grid;grid-template-columns:1fr auto 1fr;gap:10px;align-items:center;margin-top:12px}.aircode{font-family:"Nunito";font-weight:900;font-size:30px;color:#4d7da4}.airtime{font-size:16px;font-weight:900;color:#587b98}.flight-mid{font-size:13px;font-weight:900;color:#8da8bb;text-align:center}.link-btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 12px;border-radius:14px;background:rgba(255,255,255,.8);border:1px solid #e4eff8;text-decoration:none;font-size:12px;font-weight:900;color:#5f81a0;margin-top:10px}
+@media (max-width:640px){.overview{grid-template-columns:1fr}.hero h1{font-size:30px}.countdown{grid-template-columns:repeat(4,1fr)}}
+
+.hero{min-height:500px;padding-top:340px;background:linear-gradient(180deg,#bedef5,#ffe1ed);isolation:isolate}
+.hero-cover{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 52%;z-index:-1}
+.hero:before{content:"";position:absolute;inset:0;width:100%;height:100%;border-radius:0;background:linear-gradient(180deg,rgba(255,255,255,.05) 0%,rgba(240,248,255,.1) 56%,rgba(252,239,247,.92) 100%);filter:none}
+.hero:after{display:none}
+.hero .trip-chip,.hero h1,.hero .sub,.hero .wave{position:relative;z-index:1}
+.hero h1{font-size:30px;margin:10px 0 8px;text-shadow:0 2px 10px #fff9}
+.hero .sub{font-size:12px;font-weight:900;max-width:100%}
+.reality-photo{border-radius:20px;overflow:hidden;margin:-1px 0 14px;background:linear-gradient(135deg,#e6f5ff,#ffe9f3);border:1px solid #ffffffbf}
+.reality-photo img{display:block;width:100%;height:210px;object-fit:cover}
+.reality-loading{padding:45px 12px;text-align:center;color:#7a9ab2;font-size:12px}
+.reality-credit{padding:6px 10px;font-size:10px;color:#8aa1b2;line-height:1.35;background:#ffffffa9}
+.reality-more{display:block;font-size:11px;font-weight:800;padding:8px 10px;text-decoration:none;color:#6286a0;background:#ffffff9c}
+.photo-notfound{font-size:12px;color:#829aaf;padding:15px;text-align:center}
+.weather-updated{font-size:10px;margin-top:5px;color:#829cb0}
+@media(max-width:640px){.hero{min-height:410px;padding-top:265px}.hero-cover{object-position:50% 50%}.hero h1{font-size:26px}.hero .wave{margin-top:8px}.hero .pill{padding:7px 10px;font-size:10px}}
+
+.simple-hero{position:relative;overflow:hidden;border-radius:32px;min-height:220px;background:linear-gradient(135deg, rgba(183,229,255,.82), rgba(255,222,237,.84) 55%, rgba(240,248,255,.92));box-shadow:var(--shadow);border:1px solid rgba(255,255,255,.88);margin-bottom:16px}
+.simple-hero img{display:block;width:100%;height:100%;min-height:220px;object-fit:cover}
+.simple-hero .overlay{position:absolute;inset:auto 0 0 0;padding:18px 18px 16px;background:linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,.45) 25%, rgba(255,255,255,.88) 100%)}
+.simple-hero .overlay h2{font-family:"Nunito",sans-serif;font-size:28px;line-height:1.06;margin:0 0 6px;color:#4b7398;font-weight:900}
+.simple-hero .overlay p{margin:0;font-size:12px;line-height:1.5;color:#6d88a0;font-weight:800}
+.home-chip-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.home-chip{display:inline-flex;align-items:center;padding:7px 11px;border-radius:999px;background:rgba(255,255,255,.68);border:1px solid rgba(255,255,255,.92);font-size:11px;font-weight:900;color:#6c8aa4}
+.home-section-title{font-family:"Nunito",sans-serif;font-size:25px;line-height:1.05;font-weight:900;color:#4d7aa1;margin:0 0 8px}
+.home-sub{font-size:12px;color:#88a3b7;font-weight:800;line-height:1.55;margin-bottom:12px}
+.today-quick{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+.today-quick button{border:0;border-radius:18px;padding:13px 14px;background:linear-gradient(135deg,rgba(177,226,255,.75),rgba(255,225,237,.9));box-shadow:0 8px 22px rgba(175,209,234,.18);font-weight:900;color:#53789a;text-align:left}
+.compact-daylist{display:grid;gap:10px}
+.compact-stop{display:grid;grid-template-columns:68px 1fr;gap:10px;align-items:start;padding:12px;border-radius:20px;background:rgba(255,255,255,.58);border:1px solid rgba(255,255,255,.92)}
+.compact-stop .t{font-size:12px;font-weight:900;color:#6e93b3;background:rgba(255,255,255,.72);padding:7px 8px;border-radius:14px;text-align:center}
+.compact-stop .n{font-size:14px;font-weight:900;color:#4f789d;line-height:1.4}
+.compact-stop .m{font-size:12px;color:#87a1b4;line-height:1.5;margin-top:4px}
+.packing-mini .check-row:last-child,.compact-daylist:last-child{border-bottom:0}
+@media(max-width:640px){.simple-hero{min-height:200px}.simple-hero img{min-height:200px}.simple-hero .overlay h2{font-size:24px}}
+
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+/* Keep the complete designed cover visible on smaller screens */
+.hero{min-height:320px;padding:0;background:#dceeff}
+.hero-cover{object-fit:contain;object-position:center center;background:linear-gradient(135deg,#c0dcff,#ffe5ed)}
+.hero .trip-chip,.hero .wave{display:none}
+@media(max-width:640px){.hero{min-height:270px;padding:0}.hero-cover{object-fit:contain}}
+</style>
+</head>
+<body>
+<div class="app">
+  <section id="cover" class="cover screen active"><div class="hero">
+<img class="hero-cover" src="./okinawa-cover.webp" alt="粉藍粉紅沖繩海岸自駕旅行封面插畫"><div class="trip-chip">☁️ OKINAWA · 2026</div><h1 class="sr-only">沖繩9fingfing之旅</h1><div class="sub sr-only">11 NOV — 15 NOV 2026</div><div class="wave"><span class="pill">🏝️ 5 DAYS</span><span class="pill">🚗 自駕為主</span><span class="pill">☕ Cafe Hopping</span><span class="pill">🎂 Birthday Trip</span></div></div></section>
+  <section id="today" class="screen"></section><section id="days" class="screen"></section><section id="detail" class="screen"></section><section id="money" class="screen"></section><section id="menu" class="screen"></section><section id="packing" class="screen"></section><section id="flights" class="screen"></section><section id="stays" class="screen"></section><section id="wardrobe" class="screen"></section>
+  <nav class="bottom"><button class="tab" data-s="today"><i>⌂</i>TODAY</button><button class="tab" data-s="days"><i>▣</i>5 DAYS</button><button class="tab" data-s="money"><i>$</i>MONEY</button><button class="tab" data-s="menu"><i>⚙</i>MENU</button></nav>
+</div>
+<script>
+const TRIP = {"title": "沖繩9fingfing之旅", "subtitle": "OKINAWA 9FINGFING TRIP｜11 / 11 – 11 / 15, 2026", "appTitle": "沖繩9fingfing之旅", "themeColor": "#a8d8f0"};
+const DAYS = [{"day": 1, "date": "11 / 11", "weekday": "WED", "title": "Hello Okinawa! 🌴☕🌅🍢", "region": "北谷 → 恩納村", "summary": "機場取車、美國村、ZHYVAGO、Sunset Beach、ミハマノアシドリ", "coords": {"lat": 26.316, "lon": 127.757, "place": "北谷 / Chatan"}, "outfit": {"best": [["#bfe8ff", "天空藍"], ["#fff5f2", "奶白"], ["#ffd9d9", "蜜桃粉"]], "second": [["#d8cbb3", "沙米色"], ["#9bbce3", "淡牛仔藍"], ["#c8d7cb", "薄荷灰綠"]], "avoid": [["#333333", "全黑"], ["#b7da00", "螢光綠"]], "tip": "第一日有飛機、開車、美國村影相同海邊日落，著輕鬆又上鏡嘅淺色系最穩陣；海邊有風，記得帶薄外套。"}, "stops": [{"name": "香港國際機場 → 那霸機場 ✈️", "time": "09:45–13:10", "address": "Greater Bay Airlines HB336", "desc": "正式出發去沖繩！落機後入境、取行李，再聯絡租車公司接駁。", "bullets": ["入境及取行李預留約45–75分鐘", "之後去 14號月台等租車公司接駁車", "第一日建議以輕便穿搭為主，方便上落車"], "transit": "那霸機場 → Hello Rent a Car｜接駁車約15–25分鐘；14:00預約取車。"}, {"name": "Hello Rent a Car 🚗", "time": "14:00–14:45", "address": "沖縄県豊見城市与根8-8", "desc": "取車、檢查車況，同時整理之後四晚自駕節奏。", "bullets": ["確認保險、自負額及 NOC 條款", "拍低車身四邊、輪圈及現有刮痕", "測試 CarPlay／手機導航", "確認 11/15 11:00 還車安排"], "transit": "租車門市 → American Village｜約40–60分鐘，目標15:15–15:45到北谷。"}, {"name": "American Village 美國村 🌴🇺🇸", "time": "15:30–18:50", "address": "沖縄県中頭郡北谷町美浜9-1", "desc": "第一站正式進入沖繩度假模式。美式街景、海邊步道、彩色建築同購物小店都非常適合慢慢行。", "bullets": ["建議直接泊北谷町美浜公共駐車場，之後全程步行", "第一日 Lunch 唔使食太飽，夜晚 19:00 已有串燒", "推薦打卡：Depot Island 外牆、海邊步道、入夜亮燈街景"], "tags": ["Parking", "Shopping", "Photo Spots"]}, {"name": "ZHYVAGO COFFEE ROASTERY ☕", "time": "16:15–17:00", "address": "沖縄県中頭郡北谷町美浜34-1｜LeQu Okinawa Chatan Spa & Resort Premium棟 1F", "desc": "你清單入面必去咖啡店之一。工業風精品咖啡店，有大型烘豆設備，同 American Village 氣氛好夾。", "bullets": ["試 Espresso／Latte", "睇烘豆設備及店內設計", "如果啱飲，可以買包咖啡豆返香港"], "transit": "ZHYVAGO → Sunset Beach｜步行約10–15分鐘，目標17:10到海邊。"}, {"name": "Chatan Park Sunset Beach 🌅", "time": "17:10–17:50", "address": "沖縄県中頭郡北谷町美浜2", "desc": "美國村旁邊最輕鬆嘅日落位。唔需要安排活動，只要揀個舒服位置坐低睇天色慢慢變就夠浪漫。", "bullets": ["11/11 日落約 17:42", "17:10 到場先影海景，再等 Golden Hour", "如果天氣差，可以直接改去 Shopping，唔使硬等"], "tags": ["Sunset", "Relax"]}, {"name": "Daikoku Drug 北谷美國村店 💊🛍️", "time": "18:00–18:35", "address": "沖縄県中頭郡北谷町美浜2丁目4-5", "desc": "第一晚輕鬆補日用品、零食、藥妝就夠。唔建議第一日已經大手掃貨。", "bullets": ["藥妝／護膚品／旅行途中需要日用品", "買少少零食或沖繩限定小食", "避免第一晚已塞滿車尾箱"], "transit": "Daikoku Drug → ミハマノアシドリ｜步行約10–15分鐘。"}, {"name": "沖縄食材と炉端串焼 ミハマノアシドリ 🍢🐓", "time": "19:00–20:30", "address": "沖縄県中頭郡北谷町美浜34-1｜LeQu Okinawa Chatan Spa & Resort Premium棟 2F", "desc": "第一晚已 Book 好嘅晚餐。海邊行完一輪，返嚟食一餐爐端串燒啱啱好。", "bullets": ["已訂位", "主打爐端串燒及沖繩食材", "食完唔使再安排景點，直接返酒店休息"], "transit": "American Village → BLISSTIA｜約30–45分鐘車程。"}, {"name": "BLISSTIA SUITES & RESORT OKINAWA ONNASON 🏨🌙", "time": "21:15–21:45 Check-in", "address": "沖縄県国頭郡恩納村字前兼久497-6", "desc": "四晚都住同一間，正式進入 Resort Base。房大、有露台、有室內外泳池、大浴場同 Lounge，之後幾日都會圍住呢度做中心。", "bullets": ["第一晚最推薦：大浴場＋Sauna", "如果返得切可去 Pool Lounge 坐一陣", "太攰就直接房內浸浴＋便利店宵夜"], "tags": ["Resort Base"]}]}, {"day": 2, "date": "11 / 12", "weekday": "THU", "title": "Blue Cave Adventure 🤿＋海邊散步＋萬座毛日落 🌅", "region": "恩納村", "summary": "藍洞浮潛、Trip Cafe、Nabee Beach、萬座毛、みるく Agu 豬", "coords": {"lat": 26.448, "lon": 127.807, "place": "恩納村 / Onna"}, "outfit": {"best": [["#ffffff", "純白"], ["#a8e5f2", "海鹽藍"], ["#f7d7e4", "淡粉紅"]], "second": [["#cfe8cc", "薄荷綠"], ["#d9d9f8", "薰衣草紫"], ["#ddd2c0", "米杏色"]], "avoid": [["#5e452e", "深啡"], ["#ff6f00", "重橙色"]], "tip": "朝早落海活動，建議著定泳衣外搭輕便衫褲；下午返酒店沖完涼再換靚衫去 Cafe 同海邊，白色或粉藍影海景最靚。"}, "stops": [{"name": "BLISSTIA｜起身＋浮潛準備 🏨", "time": "08:50–09:35", "address": "沖縄県国頭郡恩納村前兼久497-6", "desc": "今日重點係 Blue Cave，朝早唔使 full set 打扮，著定泳衣最實際。", "bullets": ["帶泳衣、拖鞋、大毛巾、替換衣物、防曬、手機、Klook 憑證", "由酒店去前兼久漁港約5–10分鐘", "目標 10:00 前到集合點"], "transit": "BLISSTIA → 前兼久漁港｜約5–10分鐘。"}, {"name": "DayDayGoodDays｜青之洞窟浮潛 🤿🐠", "time": "10:00集合｜10:10–12:10活動", "address": "前兼久漁港｜Map Code 206 096 375*53", "desc": "今次已預訂乘船浮潛，有廣東話教練，適合第一次玩沖繩海底世界。", "bullets": ["健康表格 → 換潛水衣 → 安全講解 → 搭船 → 浮潛", "教練通常會免費拍約 5–10 張水底相", "記得事先講明唔同意公開活動照片"], "tags": ["Booked", "Water Activity"], "transit": "漁港 → BLISSTIA｜約5–10分鐘。"}, {"name": "BLISSTIA｜梳洗換衫 💄", "time": "12:30–13:55", "address": "沖縄県国頭郡恩納村前兼久497-6", "desc": "返酒店真正沖涼、洗頭、吹頭、化妝，再以舒服靚靚的狀態出發。", "bullets": ["呢段時間唔好壓太短", "換乾爽靚衫先去 Lunch 同海邊", "亦可以順手休息一陣"]}, {"name": "Trip Cafe Okinawa｜Late Lunch 🥞☕", "time": "14:00–14:55", "address": "沖縄県国頭郡恩納村前兼久466-1 Castello HNB", "desc": "你 Mark 低的大推 Tiramisu Soufflé Pancake，就放喺浮潛後嘅 Late Lunch。", "bullets": ["推薦：大人のティラミスパンケーキ", "如果浮潛後好肚餓，可加一份鹹食分享", "梳乎厘製作需時，盡量準時到"], "transit": "Trip Cafe → Nabee Beach｜約15–25分鐘，視乎交通。"}, {"name": "Nabee Beach｜恩納海浜公園 🏖️", "time": "14:10–15:40（可延長）", "address": "沖縄県国頭郡恩納村恩納419-4", "desc": "你話幾 fun、想留耐啲嘅沙灘就係呢度。唔係只係望兩眼，而係真係可以坐低、散步、影相。", "bullets": ["免費停車場，約 200 個車位", "適合情侶影相、散步、hea 一陣", "如果當日狀態好，可以喺呢度留耐啲"], "tags": ["Beach", "Photo Spots"]}, {"name": "萬座毛 Cape Manzamo 🌅🐘", "time": "16:45–17:50", "address": "沖縄県国頭郡恩納村恩納2767", "desc": "Day 2 日落主角。象鼻岩、海岸懸崖同草地，景觀同 Day 1 沙灘日落完全唔同。", "bullets": ["門票 ¥100／人", "17:30 左右 Golden Hour；11/12 日落約 17:41", "遊客中心可順路買手信"], "transit": "萬座毛 → みるく｜約5–10分鐘。"}, {"name": "アグーしゃぶしゃぶ みるく 恩納万座店 🐷🍲", "time": "19:00–20:30", "address": "沖縄県国頭郡恩納村恩納6119 エクセルあかし1F", "desc": "你朋友一生世推、而且 IG DM 已覆 OK 嘅 Agu 豬晚餐。Day 2 晚餐已經正式鎖定。", "bullets": ["主打 Agu 豬涮涮鍋", "推薦試地雞蛋＋黑胡椒食法", "記得同店員確認湯底有冇牛成分"], "tags": ["Confirmed Dinner"], "transit": "みるく → BLISSTIA｜約15–25分鐘。"}, {"name": "BLISSTIA｜Night Spa & Lounge 🌙♨️", "time": "21:00–22:45", "address": "沖縄県国頭郡恩納村前兼久497-6", "desc": "今日落海又行海邊，返到酒店最啱浸浴或去 Lounge 坐低。", "bullets": ["優先：大浴場／Sauna", "如果趕得切可先去 Pool Lounge 飲杯嘢", "真係好攰就直接返房休息"], "tags": ["Night Relax"]}]}, {"day": 3, "date": "11 / 13", "weekday": "FRI", "title": "BANTA CAFE ☕＋PARCO CITY 🛍️＋國際通＋豬內臟燒肉 🐷", "region": "讀谷 → 浦添 → 那霸", "summary": "BANTA CAFE、PARCO CITY、國際通、我那覇／豚ホルモン系晚餐", "coords": {"lat": 26.267, "lon": 127.721, "place": "那霸 / Naha"}, "outfit": {"best": [["#c8ddff", "粉霧藍"], ["#ffe1ea", "奶霧粉"], ["#f4f3ef", "珍珠白"]], "second": [["#d9d4ca", "燕麥米"], ["#a4abb5", "霧灰"], ["#d9ecdf", "淡鼠尾草綠"]], "avoid": [["#ffec00", "螢光黃"], ["#4a2b20", "重深啡"]], "tip": "今日行商場加市區 Shopping，最適合 City Casual。鞋一定要舒服，因為會喺 PARCO CITY 同國際通行好多。"}, "stops": [{"name": "BLISSTIA｜早餐＋出發 🏨☀️", "time": "08:45–09:30", "address": "沖縄県国頭郡恩納村前兼久497-6", "desc": "前一日玩水後，今日轉行街日。可以喺酒店慢慢食早餐再出發。", "bullets": ["今日唔使帶泳衣", "帶購物袋、薄外套、現金及充電器", "City Casual 穿搭最啱今日"], "transit": "BLISSTIA → BANTA CAFE｜約25–35分鐘。"}, {"name": "BANTA CAFE by Hoshino Resorts ☕🌊", "time": "10:00–11:15", "address": "沖縄県中頭郡読谷村儀間560", "desc": "Day 3 必去海景 Cafe。唔係普通飲杯嘢就走，而係一個可以慢慢探索不同觀景區域嘅海岸空間。", "bullets": ["推薦試 Shikuwasa 柑橘飲品或 Latte", "值得探索：大屋根デッキ、海辺のテラス、岩場のテラス、ごろごろラウンジ", "如果天氣好，可慢慢睇海，但唔好壓縮太多 PARCO CITY 時間"], "transit": "BANTA CAFE → PARCO CITY｜約40–55分鐘。"}, {"name": "SAN-A Urasoe West Coast PARCO CITY 🛍️🧸", "time": "12:05–15:35", "address": "沖縄県浦添市西洲3-1-1", "desc": "你特別話想去，所以 Day 3 正式保留成重點項目。大型商場、免費泊車、可連 Lunch 一次過搞掂。", "bullets": ["預留 3.5 小時連 Lunch", "可重點行：沖縄セラードコーヒー、HMV & BOOKS、Village Vanguard、雜貨店", "記低泊車樓層／顏色區域，方便之後攞車"], "tags": ["Shopping Main Event"], "transit": "PARCO CITY → 國際通｜約25–40分鐘。"}, {"name": "國際通 Kokusai Dori 🛍️🍦", "time": "16:10–18:00", "address": "沖縄県那覇市牧志・松尾一帶", "desc": "由大型商場切換到沖繩街頭 Shopping。主街、平和通商店街、市場本通都各有味道。", "bullets": ["買沖繩限定零食、手信、藥妝", "想食少少甜品可試 Blue Seal 或小食", "建議泊一次車，之後步行連晚餐一併完成"], "tags": ["Street Shopping"]}, {"name": "豚ホルモン我那覇焼肉店 / 那霸燒肉晚餐 🐷🔥", "time": "18:15–19:30", "address": "那霸市久茂地一帶（以最終訂位餐廳為準）", "desc": "你原始清單本身就想去豚ホルモン我那覇燒肉店，所以 Day 3 晚餐以豬內臟燒肉方向為主。", "bullets": ["如果成功訂我那覇就優先去我那覇", "重點可試豬內臟、特別部位、Agu 豬系菜式", "同行者唔食牛，落單時記得避開牛肉或混合拼盤"], "tags": ["Dinner Target"], "transit": "那霸市中心 → BLISSTIA｜約50–70分鐘。"}, {"name": "BLISSTIA｜Resort Night 🌙♨️", "time": "20:45–22:30", "address": "沖縄県国頭郡恩納村前兼久497-6", "desc": "行完一日街，返酒店最啱回房整理戰利品，再決定浸浴、Lounge 或直接休息。", "bullets": ["如果 20:00 左右返到，可考慮 Pool Lounge", "最穩陣仍然係大浴場＋Sauna", "準備第二日生日行程"], "tags": ["Recharge"]}]}, {"day": 4, "date": "11 / 14", "weekday": "SAT", "title": "Birthday Escape 🎂＋Infinity Pool 🏊🏻‍♀️＋Beachy 🦞＋SUGAR BROTHERS ☕＋MOSS ✨", "region": "恩納村 → 那霸", "summary": "酒店泳池、Beachy Okinawa、SUGAR BROTHERS、MOSS 生日晚餐", "coords": {"lat": 26.213, "lon": 127.685, "place": "那霸 / Naha"}, "outfit": {"best": [["#ffd9e8", "玫瑰粉"], ["#faf7f2", "珍珠白"], ["#d8d8ff", "淡丁香"]], "second": [["#bfdfff", "雲霧藍"], ["#ead7b7", "香檳米"], ["#d6e8e0", "灰薄荷"]], "avoid": [["#556b2f", "橄欖綠"], ["#2f2f2f", "沉黑"]], "tip": "生日最好上鏡又有少少正式感。朝早去泳池可以先著 Resort 風，下午返酒店再換 Dinner Outfit；香水記得少噴，避免影響晚餐體驗。"}, "stops": [{"name": "BLISSTIA｜Birthday Breakfast 🎂☀️", "time": "08:45–09:45", "address": "沖縄県国頭郡恩納村字前兼久497-6", "desc": "生日朝早先喺酒店輕鬆開始。唔使太趕，慢慢食早餐、影少少房間相。", "bullets": ["早餐後返房換泳衣", "中午同晚上都仲有重點餐飲，早餐唔使太飽", "今日以舒服、放鬆為主"], "tags": ["Birthday Morning"]}, {"name": "BLISSTIA 6F｜Infinity Pool & Jacuzzi 🏊🏻‍♀️🌴", "time": "09:45–11:15", "address": "BLISSTIA 6F", "desc": "生日早上最值回票價嘅酒店體驗。Infinity Pool、Jacuzzi 同 Resort 氣氛最啱影靚相。", "bullets": ["09:45–10:10 可先專心影相", "之後慢慢落水及浸 Jacuzzi", "如果風太大，可縮短並改為室內輕鬆活動"], "tags": ["Hotel Highlight"]}, {"name": "Beachy Okinawa｜Birthday Lunch 🦞🍰", "time": "12:30–13:40", "address": "沖縄県国頭郡恩納村6497-1 K&Sビル南 201", "desc": "你收藏清單入面必推餐廳之一。海洋主題甜點好靚，Lunch 可食海鮮或輕食，再點一份精緻甜品。", "bullets": ["建議點一份鹹食＋一份招牌甜品分享", "以海鮮／龍蝦湯方向優先，避免太 heavy", "星期六建議預先確認座位及甜品供應"], "transit": "BLISSTIA → Beachy Okinawa｜約20–30分鐘。"}, {"name": "SUGAR BROTHERS｜Coffee & Pudding ☕🍮", "time": "14:10–15:00", "address": "2702-1 Yamada, Onna, Kunigami District, Okinawa 904-0416", "desc": "你原始 Google Maps 清單特別寫明必去嘅咖啡店。氣氛同 ZHYVAGO 完全兩種路線，復古又有性格。", "bullets": ["主攻布甸＋咖啡", "可以欣賞店內復古裝潢和古董傢俬", "小店可能不定休，出發前最好再確認"], "transit": "SUGAR BROTHERS → BLISSTIA｜約10–20分鐘。"}, {"name": "BLISSTIA｜Birthday Getting Ready 💄👗", "time": "15:25–17:30", "address": "沖縄県国頭郡恩納村字前兼久497-6", "desc": "返酒店唔再硬塞設施，專心沖涼、化妝、換生日 Outfit，輕鬆地準備今晚重點晚餐。", "bullets": ["可以喺房內／露台影生日照", "17:30 左右準時出發去那霸最穩陣", "MOSS 建議少噴香水"], "tags": ["Get Ready"]}, {"name": "MOSS Okinawa｜Birthday Fine Dining 🎂✨", "time": "19:30–約22:00", "address": "那覇市牧志1-19-8｜Hotel Strata Naha 內", "desc": "今次沖繩生日旅行最重要嘅晚餐，已預約。和琉洋才風格，以沖繩季節食材結合法式技術。", "bullets": ["已訂 11/14 19:30", "建議提前通知其中一位唔食牛", "自駕去程要預留交通及泊車緩衝，早到唔怕"], "tags": ["Birthday Dinner Confirmed"], "transit": "BLISSTIA → MOSS Okinawa｜建議 17:30 出發，車程約 65–90 分鐘。"}, {"name": "BLISSTIA｜Birthday Night 🌙", "time": "22:50 後", "address": "沖縄県国頭郡恩納村字前兼久497-6", "desc": "食完 Fine Dining 就返酒店收尾，唔再安排額外活動，留力第二朝 check-out。", "bullets": ["返房換舒服衫", "可簡單執少少行李", "好好完成生日一日"], "tags": ["Wind Down"]}]}, {"day": 5, "date": "11 / 15", "weekday": "SUN", "title": "Back to Hong Kong ✈️", "region": "恩納村 → 那霸機場", "summary": "最後早餐、check-out、還車、機場返香港", "coords": {"lat": 26.195, "lon": 127.646, "place": "那霸機場 / Naha Airport"}, "outfit": {"best": [["#d8edff", "淡空藍"], ["#faf5e9", "奶油白"], ["#dfe2e8", "輕灰"]], "second": [["#f8d9e7", "淡粉"], ["#cdddcf", "鼠尾草灰綠"]], "avoid": [["#000000", "全黑"], ["#6a3d2a", "重咖啡"]], "tip": "回程日以舒服、方便上落車同機場移動為主。著最容易行動、亦適合影最後合照嘅淺色 casual outfit 就足夠。"}, "stops": [{"name": "BLISSTIA｜最後早餐＋執行李 ☀️", "time": "08:30–09:30", "address": "沖縄県国頭郡恩納村字前兼久497-6", "desc": "最後朝早唔好拖太耐，食早餐之後就開始正式 pack 行李。", "bullets": ["執好戰利品及手提行李", "檢查護照、機票、租車文件", "房內最後影一張 Goodbye Resort 照也不錯"], "tags": ["Check-out Morning"]}, {"name": "BLISSTIA Check-out 🧳", "time": "09:30–10:00", "address": "沖縄県国頭郡恩納村字前兼久497-6", "desc": "退房後由恩納村揸返去還車。記得預留加油及還車緩衝。", "bullets": ["退房前檢查房內有冇遺漏物品", "如需要可先在附近入油", "以導航為準，寧願早少少出發"], "transit": "BLISSTIA → Hello Rent a Car｜約50–70分鐘。"}, {"name": "Hello Rent a Car｜還車 🚗", "time": "11:00", "address": "沖縄県豊見城市与根8-8", "desc": "按預約時間還車，再坐接駁回那霸機場。", "bullets": ["確認油量及還車程序", "整理車內垃圾及遺漏物", "之後搭接駁回機場"], "transit": "還車點 → 那霸機場｜接駁約15–25分鐘。"}, {"name": "那霸機場｜返香港 ✈️", "time": "14:10 起飛", "address": "Naha Airport", "desc": "沖繩之旅最後一站。可以喺機場買手信、食輕食，再慢慢返香港。", "bullets": ["建議預早辦理登機", "最後補手信可留意機場商店", "如你之後確認回程航班號，可直接在 Flight Info 頁更新"], "tags": ["Return Flight 14:10"]}]}];
+const FLIGHTS = [{"airline": "Greater Bay Airlines", "no": "HB336", "date": "NOV 11, 2026", "from": "HKG", "fromTime": "09:45", "fromTerm": "Hong Kong International Airport", "to": "OKA", "toTime": "13:10", "toTerm": "Naha Airport", "duration": "約 2H 25M"}, {"airline": "Greater Bay Airlines", "no": "待確認", "date": "NOV 15, 2026", "from": "OKA", "fromTime": "14:10", "fromTerm": "Naha Airport", "to": "HKG", "toTime": "待確認", "toTerm": "Hong Kong International Airport", "duration": "請按最終機票更新"}];
+const STAYS = [{"dates": "NOV 11 — NOV 15", "name": "BLISSTIA SUITES & RESORT 沖縄恩納村", "address": "沖縄県国頭郡恩納村字前兼久497-6", "notes": ["2026 年新酒店", "套房式房間、海景露台", "室內／戶外泳池、大浴場、Pool Lounge", "四晚同一間，唔使搬行李"]}];
+const PACKING = {"證件 / 付款": ["護照", "機票 / 酒店確認", "駕駛執照 / 國際牌", "信用卡", "少量日圓現金"], "海邊 / 浮潛": ["泳衣", "拖鞋", "大毛巾", "防曬", "手機防水袋", "替換衣物"], "衣物": ["日常上衣", "短褲 / 長褲", "薄外套", "睡衣", "內衣褲", "襪", "生日晚餐 Outfit"], "洗護 / 藥物": ["護膚品", "化妝品", "牙刷牙膏", "常備藥", "隱形眼鏡用品"], "電子產品": ["電話充電線", "行動電源", "相機", "旅行轉插", "AirPods / 耳機"]};
+const PARTICIPANTS = ["Krince", "Partner"];
+let activeScreen = 'cover'; let currentDay = 0;
+const $ = s=>document.querySelector(s), $$ = s=>document.querySelectorAll(s);
+const esc = s => String(s??'').replace(/[&<>"']/g, m=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"})[m]);
+const ls = { get(k,f){ try{return JSON.parse(localStorage.getItem(k)) ?? f}catch(e){return f} }, set(k,v){ localStorage.setItem(k, JSON.stringify(v)); } };
+const mapsUrl = addr => 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(addr);
+function weatherCodeToText(code){ const map={0:['☀️','晴朗'],1:['🌤️','大致天晴'],2:['⛅','部分多雲'],3:['☁️','多雲'],45:['🌫️','有霧'],48:['🌫️','霜霧'],51:['🌦️','微雨'],53:['🌦️','驟雨'],55:['🌧️','較大雨勢'],61:['🌧️','有雨'],63:['🌧️','中雨'],65:['🌧️','大雨'],71:['🌨️','小雪'],80:['🌦️','陣雨'],81:['🌧️','較大陣雨'],82:['⛈️','強陣雨'],95:['⛈️','雷暴']}; return map[code] || ['🌤️','天氣更新中']; }
+const header=(title,side='')=>`<div class="header"><button class="icon-btn" onclick="goBack()">‹</button><div class="header-title">${title}</div><div class="header-side">${side}</div></div>`;
+function tripDayIndex(){
+  const now = new Date();
+  const hkDate = new Date(now.toLocaleString('en-US',{timeZone:'Asia/Hong_Kong'}));
+  const y = hkDate.getFullYear(), m = hkDate.getMonth(), d = hkDate.getDate();
+  const start = new Date(2026,10,11);
+  const end = new Date(2026,10,15);
+  const current = new Date(y,m,d);
+  if(current < start) return -1;
+  if(current > end) return DAYS.length - 1;
+  const diff = Math.floor((current - start)/(1000*60*60*24));
+  return Math.max(0, Math.min(DAYS.length-1, diff));
+}
+function packingPreview(limit=8){
+  const state=ls.get('okinawa_packing',{});
+  const items = Object.entries(PACKING).flatMap(([g,a])=>a.map(i=>({group:g,item:i,key:g+'|'+i,done:!!state[g+'|'+i]})));
+  const pct = Math.round((items.filter(x=>x.done).length / items.length) * 100) || 0;
+  return {items:items.slice(0,limit), pct, total:items.length, done:items.filter(x=>x.done).length};
+}
+function renderToday(){
+  const idx = tripDayIndex();
+  const tripStart = new Date('2026-11-11T00:00:00+08:00');
+  const diff = Math.max(0,Math.ceil((tripStart-new Date())/(1000*60*60*24)));
+  if(idx < 0){
+    const pv = packingPreview(10);
+    $('#today').innerHTML = header('HOME','出發前<br>PRE-TRIP') + `
+      <div class="pad">
+        <div class="simple-hero">
+          <img src="./okinawa-cover.webp" alt="沖繩 9fingfing 之旅 cover">
+          <div class="overlay">
+            <h2>${TRIP.title}</h2>
+            <p>${TRIP.subtitle}</p>
+            <div class="home-chip-row">
+              <span class="home-chip">☁️ ${diff} days to go</span>
+              <span class="home-chip">🏝️ 5 days</span>
+              <span class="home-chip">🎂 Birthday Trip</span>
+            </div>
+          </div>
+        </div>
+        <div class="panel packing-mini">
+          <div class="home-section-title">執行李 Checklist</div>
+          <div class="home-sub">出發前唔使睇太多資料，最實際就係先執行李。完成度 ${pv.pct}%（${pv.done}/${pv.total}）。</div>
+          <div class="progress"><span style="width:${pv.pct}%"></span></div>
+          <div style="height:10px"></div>
+          ${pv.items.map(x=>`<label class="check-row"><input type="checkbox" ${x.done?'checked':''} onchange="togglePack('${encodeURIComponent(x.key)}', this.checked)"><span>${esc(x.item)}</span></label>`).join('')}
+          <div class="today-quick">
+            <button onclick="show('packing')">☑ 睇完整清單</button>
+            <button onclick="show('flights')">✈ 睇航班資料</button>
+          </div>
+        </div>
+      </div>`;
+    return;
+  }
+  const d = DAYS[idx];
+  $('#today').innerHTML = header('TODAY',`DAY ${d.day}<br>${d.date}`) + `
+    <div class="pad">
+      <div class="simple-hero">
+        <img src="./okinawa-cover.webp" alt="沖繩 9fingfing 之旅 cover">
+        <div class="overlay">
+          <h2>DAY ${d.day}｜${d.title}</h2>
+          <p>${d.region}</p>
+          <div class="home-chip-row">
+            <span class="home-chip">📍 ${d.summary}</span>
+          </div>
+        </div>
+      </div>
+      <div id="todayWeatherCard" class="w-card" style="margin-bottom:16px"></div>
+      <div class="panel">
+        <div class="home-section-title">今日行程</div>
+        <div class="home-sub">只保留最重要嘅站點。想睇完整介紹再撳入 Day 詳細版。</div>
+        <div class="compact-daylist">
+          ${d.stops.map(s=>`<div class="compact-stop"><div class="t">${esc(s.time||'TBA')}</div><div><div class="n">${esc(s.name)}</div><div class="m">${esc(s.address||'')}</div></div></div>`).join('')}
+        </div>
+        <div class="today-quick">
+          <button onclick="openDay(${idx})">📍 睇完整 DAY ${d.day}</button>
+          <button onclick="show('days')">▣ 睇全部行程</button>
+        </div>
+      </div>
+    </div>`;
+  loadWeatherCard(d,'todayWeatherCard');
+}
+function renderDays(){ $('#days').innerHTML=header('5 DAYS','OKINAWA<br>11/11–11/15')+`<div class="day-list">${DAYS.map((d,i)=>`<div class="day-row" onclick="openDay(${i})"><div class="day-no">DAY ${d.day}<small>${d.date}</small></div><div><div class="title">${d.title}</div><div class="meta">${d.region} · ${d.summary}</div></div><div class="chv">›</div></div>`).join('')}</div>`; }
+const swatch=items=>items.map(i=>`<span class="sw"><i style="background:${i[0]}"></i><em>${i[1]}</em></span>`).join('');
+function placeCard(stop, idx){ const photoQuery=photoQueryFor(stop); const photo=photoQuery ? `<div class="reality-photo" data-photo-query="${esc(photoQuery)}" data-photo-name="${esc(stop.name)}"><div class="reality-loading">📷 正在搜尋景點實景照片…</div><a class="reality-more" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(stop.name)}" target="_blank" rel="noopener">Google Maps 查看現場照片 ↗</a></div>` : ""; return `<article class="place-card"><div class="place-top"><div class="place-title">${idx+1}. ${esc(stop.name)}</div><div class="place-meta">${stop.time ? `⏰ ${esc(stop.time)}`:''}${stop.address ? `<br>📍 ${esc(stop.address)}`:''}</div></div><div class="place-body">${photo}<div class="place-desc">${esc(stop.desc)}</div>${stop.bullets?.length ? `<div class="bubble-list">${stop.bullets.map(b=>`<div class="bubble">• ${esc(b)}</div>`).join('')}</div>`:''}${stop.transit ? `<div class="transit">🚗 ${esc(stop.transit)}</div>`:''}${stop.tags?.length ? `<div class="tags">${stop.tags.map(t=>`<span class="tag">${esc(t)}</span>`).join('')}</div>`:''}${stop.address && !/航班|Naha Airport|回程航班/.test(stop.address) ? `<a class="link-btn" href="${mapsUrl(stop.address)}" target="_blank" rel="noopener">Open in Maps</a>`:''}</div></article>`; }
+function openDay(i){ currentDay=i; show('detail'); renderDetail(i); }
+function renderDetail(i){ const d=DAYS[i]; $('#detail').innerHTML=header(`DAY ${d.day}`,`${d.date}<br>${d.region}`)+`<div class="detail-intro"><div class="detail-day">${d.weekday} · ${d.date}</div><div class="detail-title">${d.title}</div><div class="detail-region">${d.region} · ${d.summary}</div></div><div class="weather-wardrobe"><div id="detailWeather" class="w-card"></div></div><div class="section-stack">${d.stops.map((s,idx)=>placeCard(s,idx)).join('')}</div>`; loadWeatherCard(d,'detailWeather'); loadPlacePhotos(); }
+const PHOTO_SEARCH = [
+ ['American Village','American Village Chatan Okinawa'],
+ ['ZHYVAGO','ZHYVAGO COFFEE ROASTERY Chatan'],
+ ['Sunset Beach','Sunset Beach Chatan Okinawa'],
+ ['Daikoku Drug','Mihama American Village Chatan'],
+ ['ミハマノアシドリ','Mihama Chatan Okinawa yakitori'],
+ ['BLISSTIA SUITES','BLISSTIA SUITES RESORT Okinawa Onna'],
+ ['DayDayGoodDays','Blue Cave Maeda Okinawa'],
+ ['Trip Cafe','Trip Cafe Okinawa Onna'],
+ ['Nabee Beach','Nabee Beach Onna Okinawa'],
+ ['萬座毛','Cape Manzamo Okinawa'],
+ ['みるく','Agu shabu shabu Miruku Okinawa Onna'],
+ ['BANTA CAFE','Banta Cafe Yomitan Okinawa'],
+ ['PARCO CITY','Parco City Urasoe Okinawa'],
+ ['國際通','Kokusai Dori Naha Okinawa'],
+ ['我那覇','Naha Kumoji Okinawa yakiniku'],
+ ['Beachy Okinawa','Beachy Okinawa Onna'],
+ ['SUGAR BROTHERS','Sugar Brothers Okinawa Onna'],
+ ['MOSS Okinawa','MOSS Okinawa Naha restaurant'],
+ ['Infinity Pool','BLISSTIA Okinawa pool']
+];
+function photoQueryFor(stop){
+ const n=stop.name;
+ if(/機場|Rent a Car|Check-out|起身|準備|Getting Ready|梳洗|Birthday Night|Resort Night|Night Spa|最後早餐|Birthday Breakfast|早餐＋出發/.test(n)) return null;
+ const found=PHOTO_SEARCH.find(x=>n.includes(x[0]));
+ if(found) return found[1];
+ if(n.startsWith('BLISSTIA')) return 'BLISSTIA resort Okinawa';
+ return null;
+}
+async function loadPlacePhotos(){
+ const holders=[...document.querySelectorAll('[data-photo-query]')];
+ await Promise.all(holders.map(async holder=>{
+   const search=holder.dataset.photoQuery;
+   const cacheKey='photo_v2_'+search;
+   let result=null;
+   try{
+     const saved=localStorage.getItem(cacheKey);
+     if(saved) result=JSON.parse(saved);
+     if(!result){
+       const api='https://commons.wikimedia.org/w/api.php?action=query&generator=search&gsrsearch='+encodeURIComponent(search)+'&gsrnamespace=6&gsrlimit=12&prop=imageinfo&iiprop=url%7Cextmetadata&iiurlwidth=1100&format=json&origin=*';
+       const response=await fetch(api);
+       if(!response.ok) throw new Error('Commons API unavailable');
+       const json=await response.json();
+       const pages=Object.values(json.query?.pages||{}).filter(p=>p.imageinfo?.[0]);
+       const bad=/logo|illustration|drawing|poster|map|icon|diagram|plan|advertisement|flyer|banner|flag|symbol|sign only|mascot|render|3d/i;
+       const good=pages.filter(p=>!bad.test(p.title) && /\.(jpg|jpeg|png|webp)$/i.test(p.title));
+       const words=search.toLowerCase().split(/\s+/).filter(w=>w.length>3&&!['okinawa','japan','on the','naka','onna'].includes(w));
+       good.sort((a,b)=>words.filter(w=>b.title.toLowerCase().includes(w)).length-words.filter(w=>a.title.toLowerCase().includes(w)).length);
+       const best=good.find(p=>words.length ? words.some(w=>p.title.toLowerCase().includes(w)) : true);
+       result=best?{url:best.imageinfo[0].thumburl||best.imageinfo[0].url,source:best.imageinfo[0].descriptionurl,title:best.title}:null;
+       if(result) localStorage.setItem(cacheKey,JSON.stringify(result));
+     }
+   }catch(e){}
+   if(!holder.isConnected) return;
+   const more=holder.querySelector('.reality-more').outerHTML;
+   if(result?.url){
+     holder.innerHTML='<img loading="lazy" alt="'+esc(holder.dataset.photoName)+' 實景照片（Wikimedia Commons）" src="'+esc(result.url)+'"><div class="reality-credit">實景來源：<a href="'+esc(result.source)+'" target="_blank" rel="noopener">Wikimedia Commons · '+esc(result.title.replace(/^File:/,''))+'</a>（授權詳情見原頁）</div>'+more;
+     holder.querySelector('img').onerror=()=>{holder.innerHTML='<div class="photo-notfound">未找到可靠公開實景相片，請按下面連結睇 Google Maps 相簿。</div>'+more};
+   }else holder.innerHTML='<div class="photo-notfound">暫未找到可直接顯示嘅公開實景照片，請按下面連結查看真實照片。</div>'+more;
+ }));
+}
+let weatherCache=new Map();
+async function loadWeatherCard(day,id){
+ const box=document.getElementById(id);if(!box)return;
+ const key='2026-11-'+String(10+day.day).padStart(2,'0');
+ let w=null,error='';
+ try{
+  const cached=weatherCache.get(key);
+  if(cached && Date.now()-cached.ts<30*60*1000)w=cached.value;
+  else{
+    const url='https://api.open-meteo.com/v1/forecast?latitude='+day.coords.lat+'&longitude='+day.coords.lon+'&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max&timezone=Asia%2FTokyo&forecast_days=16&current=temperature_2m,weather_code&temperature_unit=celsius';
+    const r=await fetch(url,{cache:'no-store'}); if(!r.ok)throw Error('weather API '+r.status);
+    const j=await r.json();
+    const idx=j.daily?.time?.indexOf(key)??-1;
+    if(idx>=0 && Number.isFinite(j.daily.temperature_2m_max[idx])){
+     w={code:j.daily.weather_code[idx],max:j.daily.temperature_2m_max[idx],min:j.daily.temperature_2m_min[idx],rain:j.daily.precipitation_probability_max[idx],fetched:new Date().toLocaleString('zh-HK',{timeZone:'Asia/Tokyo'})};
+     weatherCache.set(key,{ts:Date.now(),value:w});
+    }else error='尚未進入可預報日期範圍';
+  }
+ }catch(e){error='無法連接 Open-Meteo，請檢查網絡';}
+ if(!box.isConnected)return;
+ let result=w?weatherCodeToText(w.code):['☁️','尚未取得天氣預報'];
+ const top='<div class="weather-top"><div class="weather-main"><div class="weather-icon">'+result[0]+'</div><div><div class="weather-temp">'+(w?Math.round(w.max)+'° / '+Math.round(w.min)+'°':'等待預報')+'</div><div class="weather-text">'+result[1]+' · '+esc(day.coords.place)+(w?'<br>降雨機率：'+(w.rain??'—')+'%':'<br>'+error)+'</div></div></div><span class="badge">Open-Meteo</span></div>';
+ const o=day.outfit;
+ box.innerHTML=top+'<div class="weather-updated">'+(w?'天氣預報最近讀取：'+esc(w.fetched)+' JST · 每次開頁會檢查更新（最多快取30分鐘）':'不是即時預報 · '+esc(error))+'</div>'+
+ `<div class="swatch-grid"><div class="swatch-row"><div class="swatch-label">大吉</div><div class="swatches">${swatch(o.best)}</div></div><div class="swatch-row"><div class="swatch-label">次吉</div><div class="swatches">${swatch(o.second)}</div></div><div class="swatch-row"><div class="swatch-label">不宜</div><div class="swatches">${swatch(o.avoid)}</div></div></div><div class="tip-box"><strong>穿搭色彩建議（目前為設計配色，並非已核算的每日五行）：</strong>${esc(o.tip)}</div>`;
+}
+setInterval(()=>{if(activeScreen==='detail')loadWeatherCard(DAYS[currentDay],'detailWeather');if(activeScreen==='wardrobe')DAYS.forEach((d,i)=>loadWeatherCard(d,'wardrobeWeather'+i));},30*60*1000);
+function renderWardrobe(){ $('#wardrobe').innerHTML=header('WHAT TO WEAR','五行穿衣<br>+ Weather')+`<div class="pad"><div class="panel"><div class="small"><b>👕 五行穿衣＝民俗參考。</b> 今次已將五行顏色同天氣合併，唔再分開擺。真正着衫仍然以當日溫度、風勢、落雨同活動為先。</div></div>${DAYS.map((d,i)=>`<div class="w-card" style="margin-bottom:14px"><div class="kicker">DAY ${d.day} · ${d.date}</div><div class="big" style="font-size:24px">${d.title}</div><div style="font-size:12px;color:#88a3b7;font-weight:800;margin-top:6px">${d.region}</div><div id="wardrobeWeather${i}" style="margin-top:12px"></div></div>`).join('')}</div>`; DAYS.forEach((d,i)=>loadWeatherCard(d,`wardrobeWeather${i}`)); }
+const getExpenses=()=>ls.get('okinawa_expenses',[]), saveExpenses=v=>ls.set('okinawa_expenses',v);
+// Google Sheets cloud sync: Apps Script /exec
+const SHEET_API='https://script.google.com/macros/s/AKfycbzmo-i2saDXEM-7u9VmN6nieBf3F4gXgiD3GVd4IEQVwUja8svzofquPSsoBysn_Nv3/exec';
+let cloudBusy=false, cloudLastRefresh=0, cloudError='';
+function syncNotice(){
+ const el=document.getElementById('cloudStatus');
+ if(el)el.textContent=cloudBusy?'☁️ 正在同步 Google Sheet…':cloudError?'⚠️ 同步失敗：'+cloudError:'✅ 已連接 Google Sheet · 兩部手機共用';
+}
+async function cloudRequest(action, payload=null){
+ const opts=payload===null?{method:'GET',cache:'no-store'}:{method:'POST',body:new URLSearchParams({action,...Object.fromEntries(Object.entries(payload).map(([k,v])=>[k,typeof v==='object'?JSON.stringify(v):String(v)]))})};
+ const target=payload===null?SHEET_API+'?action='+encodeURIComponent(action)+'&_='+Date.now():SHEET_API;
+ const r=await fetch(target,opts);
+ if(!r.ok)throw Error('HTTP '+r.status);
+ let result;
+ try{result=await r.json()}catch(e){throw Error('Google Apps Script 無法讀取回應；請確認 Web app 公開權限設定')}
+ if(!result.ok)throw Error(result.error||'Cloud request rejected');
+ return result;
+}
+async function cloudRefresh(force=false){
+ if(cloudBusy||(!force&&Date.now()-cloudLastRefresh<25000))return;
+ cloudBusy=true;cloudError='';syncNotice();
+ try{
+   const d=await cloudRequest('getAll');
+   saveExpenses(d.expenses||[]);
+   ls.set('okinawa_packing',d.packing||{});
+   cloudLastRefresh=Date.now();
+   // Only redraw the current screen; protect any currently typed form
+   if(activeScreen==='money')renderMoney();
+   if(activeScreen==='packing')renderPacking();
+ }catch(e){cloudError=e.message||String(e)}
+ finally{cloudBusy=false;syncNotice()}
+}
+async function cloudWrite(action,payload){
+ cloudBusy=true;cloudError='';syncNotice();
+ try{const d=await cloudRequest(action,payload);cloudBusy=false;await cloudRefresh(true);return d}
+ catch(e){cloudBusy=false;cloudError=e.message||String(e);syncNotice();throw e}
+}
+
+function renderMoney(){ const expenses=getExpenses(); const totals=expenses.reduce((a,e)=>{a[e.currency]=(a[e.currency]||0)+Number(e.amount||0); return a;},{HKD:0,JPY:0}); const balance=Object.fromEntries(PARTICIPANTS.map(p=>[p,{HKD:0,JPY:0}])); expenses.forEach(e=>{ const amt=Number(e.amount||0), c=e.currency; balance[e.paidBy][c]+=amt; const split=amt/(e.sharedWith?.length||1); (e.sharedWith||[]).forEach(p=>balance[p][c]-=split); }); $('#money').innerHTML=header('MONEY','2 PEOPLE<br>split bills')+`<div class="pad"><div class="panel"><h3>Trip Expenses</h3><div id="cloudStatus" class="small">☁️ 正在檢查雲端連線…</div><button onclick="cloudRefresh(true)" class="link-btn" style="margin:10px 0">↻ SYNC NOW</button><div class="small">今次沿用上次 app 嘅記帳概念，但簡化為二人版。支援 HKD / JPY，Google Sheet 雲端同步；本機另備有資料快取與 JSON 備份。</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px"><div class="card" style="margin:0;padding:14px"><div class="kicker">HKD Total</div><div class="big" style="font-size:26px">HK$ ${totals.HKD.toFixed(2)}</div></div><div class="card" style="margin:0;padding:14px"><div class="kicker">JPY Total</div><div class="big" style="font-size:26px">¥ ${totals.JPY.toFixed(0)}</div></div></div></div><div class="panel"><h3>Add Expense</h3><input id="expTitle" class="field" placeholder="例如：MOSS Birthday Dinner"><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px"><input id="expAmount" class="field" type="number" step="0.01" placeholder="Amount"><select id="expCurrency" class="field"><option>JPY</option><option>HKD</option></select></div><select id="expPaid" class="field">${PARTICIPANTS.map(p=>`<option>${p}</option>`).join('')}</select><div class="small" style="margin-top:8px">預設兩個人平分；如果係單人消費，可以取消其中一位。</div><label class="check-row"><input id="share0" type="checkbox" checked><span>Krince 有份</span></label><label class="check-row"><input id="share1" type="checkbox" checked><span>Partner 有份</span></label><div style="height:10px"></div><button class="primary" onclick="addExpense()">ADD EXPENSE</button></div><div class="panel"><h3>Balance</h3>${PARTICIPANTS.map(p=>`<div class="balance"><span><b>${p}</b></span><span style="text-align:right"><b>HK$ ${balance[p].HKD.toFixed(2)}</b><br><b>¥ ${Math.round(balance[p].JPY)}</b></span></div>`).join('')}<div class="small" style="margin-top:8px">正數＝應收；負數＝應付。由於係二人版，只要互相對返同一個貨幣即可。</div></div><div class="panel"><h3>Expense Log</h3>${expenses.length ? expenses.map((e,idx)=>`<div class="exp-item"><div><b>${esc(e.title)}</b><div class="small">${esc(e.currency)} · Paid by ${esc(e.paidBy)} · Shared with ${e.sharedWith.join(', ')}</div></div><div style="text-align:right"><b>${e.currency==='HKD'?'HK$':'¥'} ${Number(e.amount).toFixed(e.currency==='HKD'?2:0)}</b><br><button onclick="removeExpense(${idx})" style="border:0;background:none;color:#94aabd;font-weight:900">Delete</button></div></div>`).join('') : `<div class="small">未有任何支出紀錄。</div>`}</div><div class="panel"><h3>Back Up Data</h3><button class="primary" onclick="exportData()">EXPORT JSON BACKUP</button><div style="height:8px"></div><input type="file" class="field" accept=".json" onchange="importData(this.files[0])"></div></div>`; }
+async function addExpense(){
+ const title=$('#expTitle').value.trim();const amount=Number($('#expAmount').value);
+ if(!title||!Number.isFinite(amount)||amount<=0){alert('請先輸入有效項目同金額');return}
+ const shared=[];if($('#share0').checked)shared.push('Krince');if($('#share1').checked)shared.push('Partner');
+ if(!shared.length){alert('至少揀一位分攤者');return}
+ const expense={id:crypto.randomUUID?crypto.randomUUID():Date.now()+'-'+Math.random(),title,amount,currency:$('#expCurrency').value,paidBy:$('#expPaid').value,sharedWith:shared,at:new Date().toISOString()};
+ if(!navigator.onLine){alert('暫時離線，為避免兩部手機資料唔一致，請連線後再入數。');return}
+ try{await cloudWrite('addExpense',{expense});alert('✅ 已儲存至 Google Sheet')}
+ catch(e){alert('未能確認儲存，請先刷新 Sheet 檢查有冇重複項目，唔好即刻重複按：'+e.message)}
+}
+async function removeExpense(i){
+ const arr=getExpenses(),entry=arr[i];if(!entry)return;
+ if(!entry.id){alert('呢筆舊本機數據未有雲端 ID，無法安全刪除。');return}
+ if(!confirm('確定刪除「'+entry.title+'」？刪除會同步至 Google Sheet。'))return;
+ try{await cloudWrite('deleteExpense',{id:entry.id})}catch(e){alert('刪除未成功：'+e.message)}
+}
+function exportData(){ const data={expenses:getExpenses(),packing:ls.get('okinawa_packing',{})}; const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'}); const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='okinawa-2026-backup.json'; a.click(); setTimeout(()=>URL.revokeObjectURL(a.href),1000); }
+function importData(file){ if(!file) return; const reader=new FileReader(); reader.onload=()=>{ try{ const d=JSON.parse(reader.result); alert('已讀取備份檔，但目前為保護共用 Google Sheet，禁止直接覆蓋雲端。請使用新增支出功能，或先喺 Google Sheet 人手核對備份。'); }catch(e){ alert('匯入失敗'); } }; reader.readAsText(file); }
+function renderMenu(){ $('#menu').innerHTML=header('MENU','Okinawa<br>Utility')+`<div class="menu"><button class="menu-btn" onclick="show('wardrobe')">👕　五行穿衣 / 天氣</button><button class="menu-btn" onclick="show('packing')">☑　出發前準備清單</button><button class="menu-btn" onclick="show('flights')">✈　航班資訊</button><button class="menu-btn" onclick="show('stays')">⌂　住宿資訊</button><button class="menu-btn" onclick="show('money')">☁　記帳 / 備份資料</button><div class="always">Collect Moments.<br>Not Things.<br><small>Okinawa Edition.</small></div></div>`; }
+function renderPacking(){ const state=ls.get('okinawa_packing',{}); const all=Object.entries(PACKING).flatMap(([g,a])=>a.map(i=>g+'|'+i)); const done=all.filter(k=>state[k]).length; const pct=Math.round((done/all.length)*100)||0; $('#packing').innerHTML=header('BEFORE TRIP','Packing<br>Checklist')+`<div class="pad"><div class="panel"><h3>Packing Progress</h3><div id="cloudStatus" class="small">☁️ 正在檢查雲端連線…</div><button onclick="cloudRefresh(true)" class="link-btn" style="margin:10px 0">↻ SYNC NOW</button><div class="small">已連接 Google Sheets，兩部電話可共用 Checklist。</div><div class="progress"><span style="width:${pct}%"></span></div><div style="margin-top:8px;font-weight:900;color:#6686a0">${pct}% 完成</div></div>${Object.entries(PACKING).map(([g,a])=>`<div class="panel"><h3>${esc(g)}</h3>${a.map(i=>{ const key=g+'|'+i; return `<label class="check-row"><input type="checkbox" ${state[key]?'checked':''} onchange="togglePack('${encodeURIComponent(key)}', this.checked)"><span>${esc(i)}</span></label>`; }).join('')}</div>`).join('')}</div>`; }
+async function togglePack(k,v){
+ const key=decodeURIComponent(k), old=ls.get('okinawa_packing',{}), updated={...old,[key]:v};
+ ls.set('okinawa_packing',updated);renderPacking();
+ try{await cloudWrite('updatePacking',{key,checked:v})}
+ catch(e){ls.set('okinawa_packing',old);renderPacking();alert('Packing 未能同步，已還原勾選：'+e.message)}
+}
+function renderFlights(){ $('#flights').innerHTML=header('FLIGHTS','Flight<br>Info')+`<div class="pad">${FLIGHTS.map(f=>`<div class="flight-card"><div class="kicker">${esc(f.no)}</div><h3 style="margin-top:6px">${esc(f.airline)}</h3><div class="small">${esc(f.date)}</div><div class="flight-grid"><div><div class="aircode">${esc(f.from)}</div><div class="airtime">${esc(f.fromTime)}</div><div class="small">${esc(f.fromTerm)}</div></div><div class="flight-mid">✈<br>${esc(f.duration)}</div><div style="text-align:right"><div class="aircode">${esc(f.to)}</div><div class="airtime">${esc(f.toTime)}</div><div class="small">${esc(f.toTerm)}</div></div></div></div>`).join('')}</div>`; }
+function renderStays(){ $('#stays').innerHTML=header('STAYS','Hotel<br>Info')+`<div class="pad">${STAYS.map(s=>`<div class="stay-card"><div class="kicker">${esc(s.dates)}</div><h3 style="margin-top:6px">${esc(s.name)}</h3><div class="small">${esc(s.address)}</div>${s.notes?.length?`<div class="bubble-list" style="margin-top:12px">${s.notes.map(n=>`<div class="bubble">• ${esc(n)}</div>`).join('')}</div>`:''}<a class="link-btn" target="_blank" rel="noopener" href="${mapsUrl(s.address)}">Open in Maps</a></div>`).join('')}</div>`; }
+function show(id){ activeScreen=id; $$('.screen').forEach(s=>s.classList.remove('active')); const target=document.getElementById(id); if(target) target.classList.add('active'); $$('.tab').forEach(t=>t.classList.toggle('active', t.dataset.s===id)); if(id==='today') renderToday(); if(id==='days') renderDays(); if(id==='money'){renderMoney();cloudRefresh()} if(id==='menu') renderMenu(); if(id==='packing'){renderPacking();cloudRefresh()} if(id==='flights') renderFlights(); if(id==='stays') renderStays(); if(id==='wardrobe') renderWardrobe(); window.scrollTo(0,0); }
+function goBack(){ if(activeScreen==='detail') show('days'); else if(['packing','flights','stays','wardrobe'].includes(activeScreen)) show('menu'); else if(['today','days','money','menu'].includes(activeScreen)) show('cover'); else show('today'); }
+$$('.tab').forEach(b=>b.addEventListener('click', ()=>show(b.dataset.s))); document.getElementById('cover').addEventListener('click', ()=>show('today')); show('today');
+// Sync after startup and whenever returning to the app
+document.addEventListener('visibilitychange',()=>{if(!document.hidden)cloudRefresh()});
+cloudRefresh(true);
+</script></body></html>

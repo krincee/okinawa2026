@@ -49,6 +49,26 @@ button,input,select{font:inherit}a{color:inherit}.app{max-width:860px;margin:aut
 .photo-notfound{font-size:12px;color:#829aaf;padding:15px;text-align:center}
 .weather-updated{font-size:10px;margin-top:5px;color:#829cb0}
 @media(max-width:640px){.hero{min-height:410px;padding-top:265px}.hero-cover{object-position:50% 50%}.hero h1{font-size:26px}.hero .wave{margin-top:8px}.hero .pill{padding:7px 10px;font-size:10px}}
+
+.simple-hero{position:relative;overflow:hidden;border-radius:32px;min-height:220px;background:linear-gradient(135deg, rgba(183,229,255,.82), rgba(255,222,237,.84) 55%, rgba(240,248,255,.92));box-shadow:var(--shadow);border:1px solid rgba(255,255,255,.88);margin-bottom:16px}
+.simple-hero img{display:block;width:100%;height:100%;min-height:220px;object-fit:cover}
+.simple-hero .overlay{position:absolute;inset:auto 0 0 0;padding:18px 18px 16px;background:linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,.45) 25%, rgba(255,255,255,.88) 100%)}
+.simple-hero .overlay h2{font-family:"Nunito",sans-serif;font-size:28px;line-height:1.06;margin:0 0 6px;color:#4b7398;font-weight:900}
+.simple-hero .overlay p{margin:0;font-size:12px;line-height:1.5;color:#6d88a0;font-weight:800}
+.home-chip-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.home-chip{display:inline-flex;align-items:center;padding:7px 11px;border-radius:999px;background:rgba(255,255,255,.68);border:1px solid rgba(255,255,255,.92);font-size:11px;font-weight:900;color:#6c8aa4}
+.home-section-title{font-family:"Nunito",sans-serif;font-size:25px;line-height:1.05;font-weight:900;color:#4d7aa1;margin:0 0 8px}
+.home-sub{font-size:12px;color:#88a3b7;font-weight:800;line-height:1.55;margin-bottom:12px}
+.today-quick{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+.today-quick button{border:0;border-radius:18px;padding:13px 14px;background:linear-gradient(135deg,rgba(177,226,255,.75),rgba(255,225,237,.9));box-shadow:0 8px 22px rgba(175,209,234,.18);font-weight:900;color:#53789a;text-align:left}
+.compact-daylist{display:grid;gap:10px}
+.compact-stop{display:grid;grid-template-columns:68px 1fr;gap:10px;align-items:start;padding:12px;border-radius:20px;background:rgba(255,255,255,.58);border:1px solid rgba(255,255,255,.92)}
+.compact-stop .t{font-size:12px;font-weight:900;color:#6e93b3;background:rgba(255,255,255,.72);padding:7px 8px;border-radius:14px;text-align:center}
+.compact-stop .n{font-size:14px;font-weight:900;color:#4f789d;line-height:1.4}
+.compact-stop .m{font-size:12px;color:#87a1b4;line-height:1.5;margin-top:4px}
+.packing-mini .check-row:last-child,.compact-daylist:last-child{border-bottom:0}
+@media(max-width:640px){.simple-hero{min-height:200px}.simple-hero img{min-height:200px}.simple-hero .overlay h2{font-size:24px}}
+
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 /* Keep the complete designed cover visible on smaller screens */
 .hero{min-height:320px;padding:0;background:#dceeff}
@@ -78,7 +98,86 @@ const ls = { get(k,f){ try{return JSON.parse(localStorage.getItem(k)) ?? f}catch
 const mapsUrl = addr => 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(addr);
 function weatherCodeToText(code){ const map={0:['☀️','晴朗'],1:['🌤️','大致天晴'],2:['⛅','部分多雲'],3:['☁️','多雲'],45:['🌫️','有霧'],48:['🌫️','霜霧'],51:['🌦️','微雨'],53:['🌦️','驟雨'],55:['🌧️','較大雨勢'],61:['🌧️','有雨'],63:['🌧️','中雨'],65:['🌧️','大雨'],71:['🌨️','小雪'],80:['🌦️','陣雨'],81:['🌧️','較大陣雨'],82:['⛈️','強陣雨'],95:['⛈️','雷暴']}; return map[code] || ['🌤️','天氣更新中']; }
 const header=(title,side='')=>`<div class="header"><button class="icon-btn" onclick="goBack()">‹</button><div class="header-title">${title}</div><div class="header-side">${side}</div></div>`;
-function renderToday(){ const tripStart=new Date('2026-11-11T00:00:00+08:00'); const diff=Math.max(0,Math.ceil((tripStart-new Date())/(1000*60*60*24))); const nextDay=DAYS[0]; $('#today').innerHTML=header('TODAY','沖繩模式<br>ON')+`<div class="pad"><div class="card soft-card"><div class="overview"><div><div class="kicker">Trip Overview</div><div class="big">${TRIP.title}</div><div class="note" style="margin-top:10px">${TRIP.subtitle}<br></div><div class="quick-actions"><button onclick="show('days')">🌴 查看 5 日行程</button><button onclick="openDay(0)">📍 直接睇 DAY 1</button><button onclick="show('wardrobe')">👕 五行穿衣 + 天氣</button><button onclick="show('packing')">☑ Packing Checklist</button></div></div><div><div class="kicker">Countdown</div><div class="countdown"><div class="count-box"><b>${diff}</b><span>DAYS</span></div><div class="count-box"><b>5</b><span>TOTAL</span></div><div class="count-box"><b>4</b><span>NIGHTS</span></div><div class="count-box"><b>∞</b><span>PHOTO OPS</span></div></div><div class="card" style="margin-top:12px;margin-bottom:0;padding:14px;background:linear-gradient(135deg,rgba(213,239,255,.55),rgba(255,232,242,.72))"><div class="kicker">Next Up</div><div style="font-weight:900;color:#537aa0;line-height:1.45;margin-top:6px">DAY 1｜${nextDay.title}</div><div class="small" style="margin-top:7px">${nextDay.summary}</div></div></div></div></div><div class="card soft-card"><div class="kicker">Trip Highlights</div><div class="big" style="font-size:25px">American Village · Blue Cave · PARCO CITY · Birthday MOSS</div><div class="note" style="margin-top:10px">由美國村、藍洞浮潛、BANTA CAFE、PARCO CITY 到生日 Fine Dining，今次行程節奏係「玩水 + Cafe + Shopping + Resort + 生日晚餐」混合版，唔會過份特種兵。</div></div></div>`; }
+function tripDayIndex(){
+  const now = new Date();
+  const hkDate = new Date(now.toLocaleString('en-US',{timeZone:'Asia/Hong_Kong'}));
+  const y = hkDate.getFullYear(), m = hkDate.getMonth(), d = hkDate.getDate();
+  const start = new Date(2026,10,11);
+  const end = new Date(2026,10,15);
+  const current = new Date(y,m,d);
+  if(current < start) return -1;
+  if(current > end) return DAYS.length - 1;
+  const diff = Math.floor((current - start)/(1000*60*60*24));
+  return Math.max(0, Math.min(DAYS.length-1, diff));
+}
+function packingPreview(limit=8){
+  const state=ls.get('okinawa_packing',{});
+  const items = Object.entries(PACKING).flatMap(([g,a])=>a.map(i=>({group:g,item:i,key:g+'|'+i,done:!!state[g+'|'+i]})));
+  const pct = Math.round((items.filter(x=>x.done).length / items.length) * 100) || 0;
+  return {items:items.slice(0,limit), pct, total:items.length, done:items.filter(x=>x.done).length};
+}
+function renderToday(){
+  const idx = tripDayIndex();
+  const tripStart = new Date('2026-11-11T00:00:00+08:00');
+  const diff = Math.max(0,Math.ceil((tripStart-new Date())/(1000*60*60*24)));
+  if(idx < 0){
+    const pv = packingPreview(10);
+    $('#today').innerHTML = header('HOME','出發前<br>PRE-TRIP') + `
+      <div class="pad">
+        <div class="simple-hero">
+          <img src="./okinawa-cover.webp" alt="沖繩 9fingfing 之旅 cover">
+          <div class="overlay">
+            <h2>${TRIP.title}</h2>
+            <p>${TRIP.subtitle}</p>
+            <div class="home-chip-row">
+              <span class="home-chip">☁️ ${diff} days to go</span>
+              <span class="home-chip">🏝️ 5 days</span>
+              <span class="home-chip">🎂 Birthday Trip</span>
+            </div>
+          </div>
+        </div>
+        <div class="panel packing-mini">
+          <div class="home-section-title">執行李 Checklist</div>
+          <div class="home-sub">出發前唔使睇太多資料，最實際就係先執行李。完成度 ${pv.pct}%（${pv.done}/${pv.total}）。</div>
+          <div class="progress"><span style="width:${pv.pct}%"></span></div>
+          <div style="height:10px"></div>
+          ${pv.items.map(x=>`<label class="check-row"><input type="checkbox" ${x.done?'checked':''} onchange="togglePack('${encodeURIComponent(x.key)}', this.checked)"><span>${esc(x.item)}</span></label>`).join('')}
+          <div class="today-quick">
+            <button onclick="show('packing')">☑ 睇完整清單</button>
+            <button onclick="show('flights')">✈ 睇航班資料</button>
+          </div>
+        </div>
+      </div>`;
+    return;
+  }
+  const d = DAYS[idx];
+  $('#today').innerHTML = header('TODAY',`DAY ${d.day}<br>${d.date}`) + `
+    <div class="pad">
+      <div class="simple-hero">
+        <img src="./okinawa-cover.webp" alt="沖繩 9fingfing 之旅 cover">
+        <div class="overlay">
+          <h2>DAY ${d.day}｜${d.title}</h2>
+          <p>${d.region}</p>
+          <div class="home-chip-row">
+            <span class="home-chip">📍 ${d.summary}</span>
+          </div>
+        </div>
+      </div>
+      <div id="todayWeatherCard" class="w-card" style="margin-bottom:16px"></div>
+      <div class="panel">
+        <div class="home-section-title">今日行程</div>
+        <div class="home-sub">只保留最重要嘅站點。想睇完整介紹再撳入 Day 詳細版。</div>
+        <div class="compact-daylist">
+          ${d.stops.map(s=>`<div class="compact-stop"><div class="t">${esc(s.time||'TBA')}</div><div><div class="n">${esc(s.name)}</div><div class="m">${esc(s.address||'')}</div></div></div>`).join('')}
+        </div>
+        <div class="today-quick">
+          <button onclick="openDay(${idx})">📍 睇完整 DAY ${d.day}</button>
+          <button onclick="show('days')">▣ 睇全部行程</button>
+        </div>
+      </div>
+    </div>`;
+  loadWeatherCard(d,'todayWeatherCard');
+}
 function renderDays(){ $('#days').innerHTML=header('5 DAYS','OKINAWA<br>11/11–11/15')+`<div class="day-list">${DAYS.map((d,i)=>`<div class="day-row" onclick="openDay(${i})"><div class="day-no">DAY ${d.day}<small>${d.date}</small></div><div><div class="title">${d.title}</div><div class="meta">${d.region} · ${d.summary}</div></div><div class="chv">›</div></div>`).join('')}</div>`; }
 const swatch=items=>items.map(i=>`<span class="sw"><i style="background:${i[0]}"></i><em>${i[1]}</em></span>`).join('');
 function placeCard(stop, idx){ const photoQuery=photoQueryFor(stop); const photo=photoQuery ? `<div class="reality-photo" data-photo-query="${esc(photoQuery)}" data-photo-name="${esc(stop.name)}"><div class="reality-loading">📷 正在搜尋景點實景照片…</div><a class="reality-more" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(stop.name)}" target="_blank" rel="noopener">Google Maps 查看現場照片 ↗</a></div>` : ""; return `<article class="place-card"><div class="place-top"><div class="place-title">${idx+1}. ${esc(stop.name)}</div><div class="place-meta">${stop.time ? `⏰ ${esc(stop.time)}`:''}${stop.address ? `<br>📍 ${esc(stop.address)}`:''}</div></div><div class="place-body">${photo}<div class="place-desc">${esc(stop.desc)}</div>${stop.bullets?.length ? `<div class="bubble-list">${stop.bullets.map(b=>`<div class="bubble">• ${esc(b)}</div>`).join('')}</div>`:''}${stop.transit ? `<div class="transit">🚗 ${esc(stop.transit)}</div>`:''}${stop.tags?.length ? `<div class="tags">${stop.tags.map(t=>`<span class="tag">${esc(t)}</span>`).join('')}</div>`:''}${stop.address && !/航班|Naha Airport|回程航班/.test(stop.address) ? `<a class="link-btn" href="${mapsUrl(stop.address)}" target="_blank" rel="noopener">Open in Maps</a>`:''}</div></article>`; }
@@ -174,17 +273,76 @@ async function loadWeatherCard(day,id){
 setInterval(()=>{if(activeScreen==='detail')loadWeatherCard(DAYS[currentDay],'detailWeather');if(activeScreen==='wardrobe')DAYS.forEach((d,i)=>loadWeatherCard(d,'wardrobeWeather'+i));},30*60*1000);
 function renderWardrobe(){ $('#wardrobe').innerHTML=header('WHAT TO WEAR','五行穿衣<br>+ Weather')+`<div class="pad"><div class="panel"><div class="small"><b>👕 五行穿衣＝民俗參考。</b> 今次已將五行顏色同天氣合併，唔再分開擺。真正着衫仍然以當日溫度、風勢、落雨同活動為先。</div></div>${DAYS.map((d,i)=>`<div class="w-card" style="margin-bottom:14px"><div class="kicker">DAY ${d.day} · ${d.date}</div><div class="big" style="font-size:24px">${d.title}</div><div style="font-size:12px;color:#88a3b7;font-weight:800;margin-top:6px">${d.region}</div><div id="wardrobeWeather${i}" style="margin-top:12px"></div></div>`).join('')}</div>`; DAYS.forEach((d,i)=>loadWeatherCard(d,`wardrobeWeather${i}`)); }
 const getExpenses=()=>ls.get('okinawa_expenses',[]), saveExpenses=v=>ls.set('okinawa_expenses',v);
-function renderMoney(){ const expenses=getExpenses(); const totals=expenses.reduce((a,e)=>{a[e.currency]=(a[e.currency]||0)+Number(e.amount||0); return a;},{HKD:0,JPY:0}); const balance=Object.fromEntries(PARTICIPANTS.map(p=>[p,{HKD:0,JPY:0}])); expenses.forEach(e=>{ const amt=Number(e.amount||0), c=e.currency; balance[e.paidBy][c]+=amt; const split=amt/(e.sharedWith?.length||1); (e.sharedWith||[]).forEach(p=>balance[p][c]-=split); }); $('#money').innerHTML=header('MONEY','2 PEOPLE<br>split bills')+`<div class="pad"><div class="panel"><h3>Trip Expenses</h3><div class="small">今次沿用上次 app 嘅記帳概念，但簡化為二人版。支援 HKD / JPY，本機 localStorage 保存；亦可以匯出 JSON 備份。</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px"><div class="card" style="margin:0;padding:14px"><div class="kicker">HKD Total</div><div class="big" style="font-size:26px">HK$ ${totals.HKD.toFixed(2)}</div></div><div class="card" style="margin:0;padding:14px"><div class="kicker">JPY Total</div><div class="big" style="font-size:26px">¥ ${totals.JPY.toFixed(0)}</div></div></div></div><div class="panel"><h3>Add Expense</h3><input id="expTitle" class="field" placeholder="例如：MOSS Birthday Dinner"><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px"><input id="expAmount" class="field" type="number" step="0.01" placeholder="Amount"><select id="expCurrency" class="field"><option>JPY</option><option>HKD</option></select></div><select id="expPaid" class="field">${PARTICIPANTS.map(p=>`<option>${p}</option>`).join('')}</select><div class="small" style="margin-top:8px">預設兩個人平分；如果係單人消費，可以取消其中一位。</div><label class="check-row"><input id="share0" type="checkbox" checked><span>Krince 有份</span></label><label class="check-row"><input id="share1" type="checkbox" checked><span>Partner 有份</span></label><div style="height:10px"></div><button class="primary" onclick="addExpense()">ADD EXPENSE</button></div><div class="panel"><h3>Balance</h3>${PARTICIPANTS.map(p=>`<div class="balance"><span><b>${p}</b></span><span style="text-align:right"><b>HK$ ${balance[p].HKD.toFixed(2)}</b><br><b>¥ ${Math.round(balance[p].JPY)}</b></span></div>`).join('')}<div class="small" style="margin-top:8px">正數＝應收；負數＝應付。由於係二人版，只要互相對返同一個貨幣即可。</div></div><div class="panel"><h3>Expense Log</h3>${expenses.length ? expenses.map((e,idx)=>`<div class="exp-item"><div><b>${esc(e.title)}</b><div class="small">${esc(e.currency)} · Paid by ${esc(e.paidBy)} · Shared with ${e.sharedWith.join(', ')}</div></div><div style="text-align:right"><b>${e.currency==='HKD'?'HK$':'¥'} ${Number(e.amount).toFixed(e.currency==='HKD'?2:0)}</b><br><button onclick="removeExpense(${idx})" style="border:0;background:none;color:#94aabd;font-weight:900">Delete</button></div></div>`).join('') : `<div class="small">未有任何支出紀錄。</div>`}</div><div class="panel"><h3>Back Up Data</h3><button class="primary" onclick="exportData()">EXPORT JSON BACKUP</button><div style="height:8px"></div><input type="file" class="field" accept=".json" onchange="importData(this.files[0])"></div></div>`; }
-function addExpense(){ const title=$('#expTitle').value.trim(); const amount=parseFloat($('#expAmount').value); if(!title||!amount){ alert('請先輸入項目同金額'); return;} const shared=[]; if($('#share0').checked) shared.push('Krince'); if($('#share1').checked) shared.push('Partner'); if(!shared.length){ alert('至少揀一位分攤者'); return;} const arr=getExpenses(); arr.unshift({title,amount,currency:$('#expCurrency').value,paidBy:$('#expPaid').value,sharedWith:shared,at:new Date().toISOString()}); saveExpenses(arr); renderMoney(); }
-function removeExpense(i){ const arr=getExpenses(); arr.splice(i,1); saveExpenses(arr); renderMoney(); }
+// Google Sheets cloud sync: Apps Script /exec
+const SHEET_API='https://script.google.com/macros/s/AKfycbzmo-i2saDXEM-7u9VmN6nieBf3F4gXgiD3GVd4IEQVwUja8svzofquPSsoBysn_Nv3/exec';
+let cloudBusy=false, cloudLastRefresh=0, cloudError='';
+function syncNotice(){
+ const el=document.getElementById('cloudStatus');
+ if(el)el.textContent=cloudBusy?'☁️ 正在同步 Google Sheet…':cloudError?'⚠️ 同步失敗：'+cloudError:'✅ 已連接 Google Sheet · 兩部手機共用';
+}
+async function cloudRequest(action, payload=null){
+ const opts=payload===null?{method:'GET',cache:'no-store'}:{method:'POST',body:new URLSearchParams({action,...Object.fromEntries(Object.entries(payload).map(([k,v])=>[k,typeof v==='object'?JSON.stringify(v):String(v)]))})};
+ const target=payload===null?SHEET_API+'?action='+encodeURIComponent(action)+'&_='+Date.now():SHEET_API;
+ const r=await fetch(target,opts);
+ if(!r.ok)throw Error('HTTP '+r.status);
+ let result;
+ try{result=await r.json()}catch(e){throw Error('Google Apps Script 無法讀取回應；請確認 Web app 公開權限設定')}
+ if(!result.ok)throw Error(result.error||'Cloud request rejected');
+ return result;
+}
+async function cloudRefresh(force=false){
+ if(cloudBusy||(!force&&Date.now()-cloudLastRefresh<25000))return;
+ cloudBusy=true;cloudError='';syncNotice();
+ try{
+   const d=await cloudRequest('getAll');
+   saveExpenses(d.expenses||[]);
+   ls.set('okinawa_packing',d.packing||{});
+   cloudLastRefresh=Date.now();
+   // Only redraw the current screen; protect any currently typed form
+   if(activeScreen==='money')renderMoney();
+   if(activeScreen==='packing')renderPacking();
+ }catch(e){cloudError=e.message||String(e)}
+ finally{cloudBusy=false;syncNotice()}
+}
+async function cloudWrite(action,payload){
+ cloudBusy=true;cloudError='';syncNotice();
+ try{const d=await cloudRequest(action,payload);cloudBusy=false;await cloudRefresh(true);return d}
+ catch(e){cloudBusy=false;cloudError=e.message||String(e);syncNotice();throw e}
+}
+
+function renderMoney(){ const expenses=getExpenses(); const totals=expenses.reduce((a,e)=>{a[e.currency]=(a[e.currency]||0)+Number(e.amount||0); return a;},{HKD:0,JPY:0}); const balance=Object.fromEntries(PARTICIPANTS.map(p=>[p,{HKD:0,JPY:0}])); expenses.forEach(e=>{ const amt=Number(e.amount||0), c=e.currency; balance[e.paidBy][c]+=amt; const split=amt/(e.sharedWith?.length||1); (e.sharedWith||[]).forEach(p=>balance[p][c]-=split); }); $('#money').innerHTML=header('MONEY','2 PEOPLE<br>split bills')+`<div class="pad"><div class="panel"><h3>Trip Expenses</h3><div id="cloudStatus" class="small">☁️ 正在檢查雲端連線…</div><button onclick="cloudRefresh(true)" class="link-btn" style="margin:10px 0">↻ SYNC NOW</button><div class="small">今次沿用上次 app 嘅記帳概念，但簡化為二人版。支援 HKD / JPY，Google Sheet 雲端同步；本機另備有資料快取與 JSON 備份。</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px"><div class="card" style="margin:0;padding:14px"><div class="kicker">HKD Total</div><div class="big" style="font-size:26px">HK$ ${totals.HKD.toFixed(2)}</div></div><div class="card" style="margin:0;padding:14px"><div class="kicker">JPY Total</div><div class="big" style="font-size:26px">¥ ${totals.JPY.toFixed(0)}</div></div></div></div><div class="panel"><h3>Add Expense</h3><input id="expTitle" class="field" placeholder="例如：MOSS Birthday Dinner"><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px"><input id="expAmount" class="field" type="number" step="0.01" placeholder="Amount"><select id="expCurrency" class="field"><option>JPY</option><option>HKD</option></select></div><select id="expPaid" class="field">${PARTICIPANTS.map(p=>`<option>${p}</option>`).join('')}</select><div class="small" style="margin-top:8px">預設兩個人平分；如果係單人消費，可以取消其中一位。</div><label class="check-row"><input id="share0" type="checkbox" checked><span>Krince 有份</span></label><label class="check-row"><input id="share1" type="checkbox" checked><span>Partner 有份</span></label><div style="height:10px"></div><button class="primary" onclick="addExpense()">ADD EXPENSE</button></div><div class="panel"><h3>Balance</h3>${PARTICIPANTS.map(p=>`<div class="balance"><span><b>${p}</b></span><span style="text-align:right"><b>HK$ ${balance[p].HKD.toFixed(2)}</b><br><b>¥ ${Math.round(balance[p].JPY)}</b></span></div>`).join('')}<div class="small" style="margin-top:8px">正數＝應收；負數＝應付。由於係二人版，只要互相對返同一個貨幣即可。</div></div><div class="panel"><h3>Expense Log</h3>${expenses.length ? expenses.map((e,idx)=>`<div class="exp-item"><div><b>${esc(e.title)}</b><div class="small">${esc(e.currency)} · Paid by ${esc(e.paidBy)} · Shared with ${e.sharedWith.join(', ')}</div></div><div style="text-align:right"><b>${e.currency==='HKD'?'HK$':'¥'} ${Number(e.amount).toFixed(e.currency==='HKD'?2:0)}</b><br><button onclick="removeExpense(${idx})" style="border:0;background:none;color:#94aabd;font-weight:900">Delete</button></div></div>`).join('') : `<div class="small">未有任何支出紀錄。</div>`}</div><div class="panel"><h3>Back Up Data</h3><button class="primary" onclick="exportData()">EXPORT JSON BACKUP</button><div style="height:8px"></div><input type="file" class="field" accept=".json" onchange="importData(this.files[0])"></div></div>`; }
+async function addExpense(){
+ const title=$('#expTitle').value.trim();const amount=Number($('#expAmount').value);
+ if(!title||!Number.isFinite(amount)||amount<=0){alert('請先輸入有效項目同金額');return}
+ const shared=[];if($('#share0').checked)shared.push('Krince');if($('#share1').checked)shared.push('Partner');
+ if(!shared.length){alert('至少揀一位分攤者');return}
+ const expense={id:crypto.randomUUID?crypto.randomUUID():Date.now()+'-'+Math.random(),title,amount,currency:$('#expCurrency').value,paidBy:$('#expPaid').value,sharedWith:shared,at:new Date().toISOString()};
+ if(!navigator.onLine){alert('暫時離線，為避免兩部手機資料唔一致，請連線後再入數。');return}
+ try{await cloudWrite('addExpense',{expense});alert('✅ 已儲存至 Google Sheet')}
+ catch(e){alert('未能確認儲存，請先刷新 Sheet 檢查有冇重複項目，唔好即刻重複按：'+e.message)}
+}
+async function removeExpense(i){
+ const arr=getExpenses(),entry=arr[i];if(!entry)return;
+ if(!entry.id){alert('呢筆舊本機數據未有雲端 ID，無法安全刪除。');return}
+ if(!confirm('確定刪除「'+entry.title+'」？刪除會同步至 Google Sheet。'))return;
+ try{await cloudWrite('deleteExpense',{id:entry.id})}catch(e){alert('刪除未成功：'+e.message)}
+}
 function exportData(){ const data={expenses:getExpenses(),packing:ls.get('okinawa_packing',{})}; const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'}); const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='okinawa-2026-backup.json'; a.click(); setTimeout(()=>URL.revokeObjectURL(a.href),1000); }
-function importData(file){ if(!file) return; const reader=new FileReader(); reader.onload=()=>{ try{ const d=JSON.parse(reader.result); if(d.expenses) saveExpenses(d.expenses); if(d.packing) ls.set('okinawa_packing', d.packing); alert('匯入完成 ✓'); renderMoney(); }catch(e){ alert('匯入失敗'); } }; reader.readAsText(file); }
+function importData(file){ if(!file) return; const reader=new FileReader(); reader.onload=()=>{ try{ const d=JSON.parse(reader.result); alert('已讀取備份檔，但目前為保護共用 Google Sheet，禁止直接覆蓋雲端。請使用新增支出功能，或先喺 Google Sheet 人手核對備份。'); }catch(e){ alert('匯入失敗'); } }; reader.readAsText(file); }
 function renderMenu(){ $('#menu').innerHTML=header('MENU','Okinawa<br>Utility')+`<div class="menu"><button class="menu-btn" onclick="show('wardrobe')">👕　五行穿衣 / 天氣</button><button class="menu-btn" onclick="show('packing')">☑　出發前準備清單</button><button class="menu-btn" onclick="show('flights')">✈　航班資訊</button><button class="menu-btn" onclick="show('stays')">⌂　住宿資訊</button><button class="menu-btn" onclick="show('money')">☁　記帳 / 備份資料</button><div class="always">Collect Moments.<br>Not Things.<br><small>Okinawa Edition.</small></div></div>`; }
-function renderPacking(){ const state=ls.get('okinawa_packing',{}); const all=Object.entries(PACKING).flatMap(([g,a])=>a.map(i=>g+'|'+i)); const done=all.filter(k=>state[k]).length; const pct=Math.round((done/all.length)*100)||0; $('#packing').innerHTML=header('BEFORE TRIP','Packing<br>Checklist')+`<div class="pad"><div class="panel"><h3>Packing Progress</h3><div class="small">用番上次 app 概念，但今次簡化到最實用版本。</div><div class="progress"><span style="width:${pct}%"></span></div><div style="margin-top:8px;font-weight:900;color:#6686a0">${pct}% 完成</div></div>${Object.entries(PACKING).map(([g,a])=>`<div class="panel"><h3>${esc(g)}</h3>${a.map(i=>{ const key=g+'|'+i; return `<label class="check-row"><input type="checkbox" ${state[key]?'checked':''} onchange="togglePack('${encodeURIComponent(key)}', this.checked)"><span>${esc(i)}</span></label>`; }).join('')}</div>`).join('')}</div>`; }
-function togglePack(k,v){ const key=decodeURIComponent(k); const s=ls.get('okinawa_packing',{}); s[key]=v; ls.set('okinawa_packing',s); renderPacking(); }
+function renderPacking(){ const state=ls.get('okinawa_packing',{}); const all=Object.entries(PACKING).flatMap(([g,a])=>a.map(i=>g+'|'+i)); const done=all.filter(k=>state[k]).length; const pct=Math.round((done/all.length)*100)||0; $('#packing').innerHTML=header('BEFORE TRIP','Packing<br>Checklist')+`<div class="pad"><div class="panel"><h3>Packing Progress</h3><div id="cloudStatus" class="small">☁️ 正在檢查雲端連線…</div><button onclick="cloudRefresh(true)" class="link-btn" style="margin:10px 0">↻ SYNC NOW</button><div class="small">已連接 Google Sheets，兩部電話可共用 Checklist。</div><div class="progress"><span style="width:${pct}%"></span></div><div style="margin-top:8px;font-weight:900;color:#6686a0">${pct}% 完成</div></div>${Object.entries(PACKING).map(([g,a])=>`<div class="panel"><h3>${esc(g)}</h3>${a.map(i=>{ const key=g+'|'+i; return `<label class="check-row"><input type="checkbox" ${state[key]?'checked':''} onchange="togglePack('${encodeURIComponent(key)}', this.checked)"><span>${esc(i)}</span></label>`; }).join('')}</div>`).join('')}</div>`; }
+async function togglePack(k,v){
+ const key=decodeURIComponent(k), old=ls.get('okinawa_packing',{}), updated={...old,[key]:v};
+ ls.set('okinawa_packing',updated);renderPacking();
+ try{await cloudWrite('updatePacking',{key,checked:v})}
+ catch(e){ls.set('okinawa_packing',old);renderPacking();alert('Packing 未能同步，已還原勾選：'+e.message)}
+}
 function renderFlights(){ $('#flights').innerHTML=header('FLIGHTS','Flight<br>Info')+`<div class="pad">${FLIGHTS.map(f=>`<div class="flight-card"><div class="kicker">${esc(f.no)}</div><h3 style="margin-top:6px">${esc(f.airline)}</h3><div class="small">${esc(f.date)}</div><div class="flight-grid"><div><div class="aircode">${esc(f.from)}</div><div class="airtime">${esc(f.fromTime)}</div><div class="small">${esc(f.fromTerm)}</div></div><div class="flight-mid">✈<br>${esc(f.duration)}</div><div style="text-align:right"><div class="aircode">${esc(f.to)}</div><div class="airtime">${esc(f.toTime)}</div><div class="small">${esc(f.toTerm)}</div></div></div></div>`).join('')}</div>`; }
 function renderStays(){ $('#stays').innerHTML=header('STAYS','Hotel<br>Info')+`<div class="pad">${STAYS.map(s=>`<div class="stay-card"><div class="kicker">${esc(s.dates)}</div><h3 style="margin-top:6px">${esc(s.name)}</h3><div class="small">${esc(s.address)}</div>${s.notes?.length?`<div class="bubble-list" style="margin-top:12px">${s.notes.map(n=>`<div class="bubble">• ${esc(n)}</div>`).join('')}</div>`:''}<a class="link-btn" target="_blank" rel="noopener" href="${mapsUrl(s.address)}">Open in Maps</a></div>`).join('')}</div>`; }
-function show(id){ activeScreen=id; $$('.screen').forEach(s=>s.classList.remove('active')); const target=document.getElementById(id); if(target) target.classList.add('active'); $$('.tab').forEach(t=>t.classList.toggle('active', t.dataset.s===id)); if(id==='today') renderToday(); if(id==='days') renderDays(); if(id==='money') renderMoney(); if(id==='menu') renderMenu(); if(id==='packing') renderPacking(); if(id==='flights') renderFlights(); if(id==='stays') renderStays(); if(id==='wardrobe') renderWardrobe(); window.scrollTo(0,0); }
+function show(id){ activeScreen=id; $$('.screen').forEach(s=>s.classList.remove('active')); const target=document.getElementById(id); if(target) target.classList.add('active'); $$('.tab').forEach(t=>t.classList.toggle('active', t.dataset.s===id)); if(id==='today') renderToday(); if(id==='days') renderDays(); if(id==='money'){renderMoney();cloudRefresh()} if(id==='menu') renderMenu(); if(id==='packing'){renderPacking();cloudRefresh()} if(id==='flights') renderFlights(); if(id==='stays') renderStays(); if(id==='wardrobe') renderWardrobe(); window.scrollTo(0,0); }
 function goBack(){ if(activeScreen==='detail') show('days'); else if(['packing','flights','stays','wardrobe'].includes(activeScreen)) show('menu'); else if(['today','days','money','menu'].includes(activeScreen)) show('cover'); else show('today'); }
 $$('.tab').forEach(b=>b.addEventListener('click', ()=>show(b.dataset.s))); document.getElementById('cover').addEventListener('click', ()=>show('today')); show('today');
+// Sync after startup and whenever returning to the app
+document.addEventListener('visibilitychange',()=>{if(!document.hidden)cloudRefresh()});
+cloudRefresh(true);
 </script></body></html>
