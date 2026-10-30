@@ -1,0 +1,20 @@
+{
+  "name": "沖繩9fingfing之旅",
+  "short_name": "沖繩9fingfing",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f1faff",
+  "theme_color": "#a8d8f0",
+  "icons": [
+    {
+      "src": "./icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "./icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

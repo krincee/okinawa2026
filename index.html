@@ -80,7 +80,7 @@ button,input,select{font:inherit}a{color:inherit}.app{max-width:860px;margin:aut
 <body>
 <div class="app">
   <section id="cover" class="cover screen active"><div class="hero">
-<img class="hero-cover" src="./okinawa-cover.webp" alt="粉藍粉紅沖繩海岸自駕旅行封面插畫"><div class="trip-chip">☁️ OKINAWA · 2026</div><h1 class="sr-only">沖繩9fingfing之旅</h1><div class="sub sr-only">11 NOV — 15 NOV 2026</div><div class="wave"><span class="pill">🏝️ 5 DAYS</span><span class="pill">🚗 自駕為主</span><span class="pill">☕ Cafe Hopping</span><span class="pill">🎂 Birthday Trip</span></div></div></section>
+<img class="hero-cover" src="./okinawa-banner-clean-v3.webp" alt="粉藍粉紅沖繩海岸自駕旅行封面插畫"></div></section>
   <section id="today" class="screen"></section><section id="days" class="screen"></section><section id="detail" class="screen"></section><section id="money" class="screen"></section><section id="menu" class="screen"></section><section id="packing" class="screen"></section><section id="flights" class="screen"></section><section id="stays" class="screen"></section><section id="wardrobe" class="screen"></section>
   <nav class="bottom"><button class="tab" data-s="today"><i>⌂</i>TODAY</button><button class="tab" data-s="days"><i>▣</i>5 DAYS</button><button class="tab" data-s="money"><i>$</i>MONEY</button><button class="tab" data-s="menu"><i>⚙</i>MENU</button></nav>
 </div>
@@ -125,7 +125,7 @@ function renderToday(){
     $('#today').innerHTML = header('HOME','出發前<br>PRE-TRIP') + `
       <div class="pad">
         <div class="simple-hero">
-          <img src="./okinawa-cover.webp" alt="沖繩 9fingfing 之旅 cover">
+          <img src="./okinawa-banner-clean-v3.webp" alt="沖繩 9fingfing 之旅 cover">
           <div class="overlay">
             <div class="home-chip-row">
               <span class="home-chip">☁️ ${diff} days to go</span>
@@ -152,7 +152,7 @@ function renderToday(){
   $('#today').innerHTML = header('TODAY',`DAY ${d.day}<br>${d.date}`) + `
     <div class="pad">
       <div class="simple-hero">
-        <img src="./okinawa-cover.webp" alt="沖繩 9fingfing 之旅 cover">
+        <img src="./okinawa-banner-clean-v3.webp" alt="沖繩 9fingfing 之旅 cover">
         <div class="overlay">
           <h2>DAY ${d.day}｜${d.title}</h2>
           <p>${d.region}</p>
